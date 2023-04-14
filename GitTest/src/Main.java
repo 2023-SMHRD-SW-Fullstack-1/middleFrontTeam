@@ -6,7 +6,7 @@ public class Main {
 		
 		// 각자의 이름에 맞게 객체 생성해주세요.
 
-		Thai a = new Thai(); // 정용
+		Thai a = new Thai(); // 정용1
 		China b = new China(); // 소희
 		Switzerland c = new Switzerland(); // 다운
 		Japan d = new Japan(); // 영석
