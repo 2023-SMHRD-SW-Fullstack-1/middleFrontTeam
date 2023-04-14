@@ -9,13 +9,13 @@ public class China extends nation {
 
 	@Override
 	public void population() {
-		System.out.println("14억");
+		System.out.println("인구수 : 14억");
 		
 	}
 
 	@Override
 	public void capital() {
-		System.out.println("베이징");
+		System.out.println("수도 : 베이징");
 		
 	}
 
