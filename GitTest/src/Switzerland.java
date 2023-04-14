@@ -12,7 +12,7 @@ public class Switzerland extends nation{
 
 	@Override
 	public void population() {
-		System.out.println("150,000");
+		System.out.println("690만명");
 		
 	}
 
