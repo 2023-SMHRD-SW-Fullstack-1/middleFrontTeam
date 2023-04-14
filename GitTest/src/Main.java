@@ -7,7 +7,7 @@ public class Main {
 		// 각자의 이름에 맞게 객체 생성해주세요.
 		aaa a = new aaa(); // 정용
 		bbb b = new bbb(); // 소희
-		ccc c = new ccc(); // 다운
+		Switzerland c = new Switzerland(); // 다운
 		ddd d = new ddd(); // 영석
 		
 		a.Hello();
