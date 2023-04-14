@@ -5,9 +5,15 @@ public class Main {
 		
 		
 		// 각자의 이름에 맞게 객체 생성해주세요.
+<<<<<<< HEAD
 		Thai ab = new Thai(); // 정용
 		China b = new China(); // 소희
 		ccc c = new ccc(); // 다운
+=======
+		aaa a = new aaa(); // 정용
+		China b = new China(); // 소희
+		Switzerland c = new Switzerland(); // 다운
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-SW-Fullstack-1/middleFrontTeam.git
 		ddd d = new ddd(); // 영석
 		
 		a.Hello();
