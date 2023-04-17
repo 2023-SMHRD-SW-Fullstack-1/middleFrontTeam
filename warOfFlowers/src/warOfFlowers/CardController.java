@@ -8,16 +8,16 @@ public class CardController {
 		
 	}
 	
-	public Card getRandomCard(int number) {
-		// 1~20 까지 랜덤카드 출력
-		Random rd = new Random();
-		int num = rd.nextInt(20) + 1;
-		Card card = new Card();
-		card.setNumber(num);
-		card.setImg(cardToAscii(num));
-		return card;
-		
-	}
+//	public Card getRandomCard(int number) {
+//		// 1~20 까지 랜덤카드 출력
+//		Random rd = new Random();
+//		int num = rd.nextInt(20) + 1;
+//		Card card = new Card();
+//		card.setNumber(num);
+//		card.setImg(cardToAscii(num));
+//		return card;
+//		
+//	}
 	
 	
 	
@@ -498,6 +498,29 @@ public class CardController {
 		return temp;
 	}
 	
-	
+	// 테스트
+	public static void main(String[] args) {
+		CardController a = new CardController();
+		System.out.println(a.cardToAscii(1));
+		System.out.println(a.cardToAscii(2));
+		System.out.println(a.cardToAscii(3));
+		System.out.println(a.cardToAscii(4));
+		System.out.println(a.cardToAscii(5));
+		System.out.println(a.cardToAscii(6));
+		System.out.println(a.cardToAscii(7));
+		System.out.println(a.cardToAscii(8));
+		System.out.println(a.cardToAscii(9));
+		System.out.println(a.cardToAscii(10));
+		System.out.println(a.cardToAscii(11));
+		System.out.println(a.cardToAscii(12));
+		System.out.println(a.cardToAscii(13));
+		System.out.println(a.cardToAscii(14));
+		System.out.println(a.cardToAscii(15));
+		System.out.println(a.cardToAscii(16));
+		System.out.println(a.cardToAscii(17));
+		System.out.println(a.cardToAscii(18));
+		System.out.println(a.cardToAscii(19));
+		System.out.println(a.cardToAscii(20));
+	}
 	
 }
