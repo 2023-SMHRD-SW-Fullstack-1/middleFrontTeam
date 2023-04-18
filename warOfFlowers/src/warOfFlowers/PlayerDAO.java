@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class PlayerDAO {
 
 	/* 사용예시
-	PlayerDAO dao = new JDBC();
+	PlayerDAO dao = new PlayerDAO();
 	
 	회원가입 (리턴타입 : boolean)
 	dao.signupsignup(String inputId, String inputPw, String InputNick);
