@@ -114,6 +114,7 @@ public class Frame extends JFrame{
 			c.remove(5);
 			c.remove(4);
 			c.remove(3);
+			arr.clear();
 			revalidate();
 		    repaint();
 		}else if(componentCount == 9) {
@@ -123,13 +124,14 @@ public class Frame extends JFrame{
 			c.remove(5);
 			c.remove(4);
 			c.remove(3);
+			arr.clear();
 			revalidate();
 		    repaint();
 		}
 	}
 	
 	public void showPriority() {
-		
+		// 족보 보이기 맨위로 보이게 수정하기
 		String filePath = "src/flowersImg/zokbo.jpg";
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);

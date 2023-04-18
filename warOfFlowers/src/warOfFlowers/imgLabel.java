@@ -13,7 +13,7 @@ public class imgLabel extends JLabel{
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 		Icon newIcon = new ImageIcon(image);
-		setSize(150,150);
+		setSize(140,140);
 		setIcon(newIcon);
 	}
 }
