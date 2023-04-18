@@ -98,8 +98,8 @@ public class Frame extends JFrame{
 		c.remove(8);
 		c.remove(7);
 		c.remove(6);
-		for(int i=6; i<arr.size(); i++) {
-			imgLabel img = new imgLabel(i);
+		for(int i=3; i<arr.size(); i++) {
+			imgLabel img = new imgLabel(arr.get(i));
 			c.add(img);
 			revalidate();
 		    repaint();

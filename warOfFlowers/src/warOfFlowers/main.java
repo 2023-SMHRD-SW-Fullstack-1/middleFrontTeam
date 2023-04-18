@@ -82,8 +82,7 @@ public class main {
 									System.out.print("1.오픈 2.다이 >> ");
 									select = sc.nextInt();
 									if(select==1) {
-									frame.openFlower();
-						
+										frame.openFlower();
 									}
 									int user_score= winLose.score(user, user_1);
 									int com1_score= winLose.score(com1, com1_1);
