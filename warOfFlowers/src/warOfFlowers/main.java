@@ -35,25 +35,24 @@ public class main {
 					System.out.print("[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
 					int mode = sc.nextInt();
 					if(mode == 1) {//게임시작
-						Card card1 = cardController.getRandomCard();
-						Card card2 = cardController.getRandomCard();
-						Card card3 = cardController.getRandomCard();
 						
-						frame.makeFlower(card1.getNumber());
-						frame.makeFlower(card2.getNumber());
-						frame.makeFlower(card3.getNumber());
+						frame.makeFlower();
+						frame.makeFlower();
+						frame.makeFlower();
 						System.out.print("[1]콜 [2]다이 >> ");
 						select = sc.nextInt();
-						if(select==1) {
-							Card card12 = cardController.getRandomCard();
-							Card card23 = cardController.getRandomCard();
-							Card card34 = cardController.getRandomCard();
+						if(select==1) {//콜
+			
+							frame.makeFlower();
+							frame.makeFlower();
+							frame.makeFlower();
 							
-							frame.makeFlower(card12.getNumber());
-							frame.makeFlower(card23.getNumber());
-							frame.makeFlower(card34.getNumber());
 							
-						}else if(select==2) {
+							
+							
+							
+							
+						}else if(select==2) {//다이
 							frame.deleteFlower();
 							
 						}else {
