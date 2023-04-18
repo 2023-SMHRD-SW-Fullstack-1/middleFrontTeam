@@ -67,6 +67,43 @@ public class Frame extends JFrame{
 		
 	}
 	
+	public int makeFakeFlower() {
+		CardController cc = new CardController();
+		int cardNum;
+//		cardNum = cc.getRandomCard().getNumber();
+//		System.out.println(cardNum);
+		
+		
+		while(true) {
+			cardNum = cc.getRandomCard().getNumber();
+			if(isDuplicate(cardNum)) {
+				cardNum = cc.getRandomCard().getNumber();
+			}else {
+				arr.add(cardNum);
+				break;
+			}
+		}
+		
+		imgLabel img = new imgLabel(21);
+		c.add(img);
+		
+		return cardNum;
+		
+		
+	}
+	
+	public void openFlower() {
+		c.remove(8);
+		c.remove(7);
+		c.remove(6);
+		for(int i=6; i<arr.size(); i++) {
+			imgLabel img = new imgLabel(i);
+			c.add(img);
+		}
+		
+	}
+	
+	
 	public void deleteFlower() {
 		int componentCount = c.getComponentCount();
 		if(componentCount == 6) {
