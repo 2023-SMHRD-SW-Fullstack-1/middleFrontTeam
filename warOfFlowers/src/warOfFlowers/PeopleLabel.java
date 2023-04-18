@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 public class PeopleLabel extends JLabel{
 	public PeopleLabel() {
-		String filePath = "src/flowersImg/peo.png";
+		String filePath = "src/flowersImg/aaaa.png";
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 		Icon newIcon = new ImageIcon(image);
