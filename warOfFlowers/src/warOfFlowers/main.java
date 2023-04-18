@@ -13,6 +13,7 @@ public class main {
 		
 		PlayerDTO player;
 		int select;
+	
 		while(true) {
 			System.out.print("[1]로그인 [2]회원가입 >> ");
 			select = sc.nextInt();
@@ -44,10 +45,13 @@ public class main {
 						System.out.print("[1]콜 [2]다이 >> ");
 						select = sc.nextInt();
 						if(select==1) {
+							Card card12 = cardController.getRandomCard();
+							Card card23 = cardController.getRandomCard();
+							Card card34 = cardController.getRandomCard();
 							
-							frame.makeFlower(card1.getNumber());
-							frame.makeFlower(card2.getNumber());
-							frame.makeFlower(card3.getNumber());
+							frame.makeFlower(card12.getNumber());
+							frame.makeFlower(card23.getNumber());
+							frame.makeFlower(card34.getNumber());
 							
 						}else if(select==2) {
 							frame.deleteFlower();
