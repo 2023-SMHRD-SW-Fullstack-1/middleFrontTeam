@@ -3,13 +3,14 @@ package warOfFlowers;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
-
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
 public class Frame extends JFrame{
 	
 	Container c;
+	ArrayList<Integer> arr = new ArrayList<>();
 	
 	public Frame() {
 		setTitle("warOfFlowers");
@@ -25,16 +26,39 @@ public class Frame extends JFrame{
 		setVisible(true);
 	}
 	
-	public void makeFlower(int number) {
-		imgLabel img = new imgLabel(number);
-		c.add(img);
-		revalidate();
-	    repaint();
+	public boolean isDuplicate(int num) {
+		boolean result = false;
+		for(int i=0; i<arr.size(); i++) {
+			if(arr.get(i) == num) {
+				result = false;
+			}
+		}
+		return true;
+		
+	}
+	
+	public void makeFlower() {
+		CardController cc = new CardController();
+		int cardNum;
+
+		while(true) {
+			cardNum = cc.getRandomCard().getNumber();
+			if(isDuplicate(cardNum)) {
+				//
+			}else {
+				arr.add(cardNum);
+				imgLabel img = new imgLabel(cardNum);
+				c.add(img);
+				revalidate();
+			    repaint();
+				break;
+			}
+		}
+		
 	}
 	
 	public void deleteFlower() {
 		int componentCount = c.getComponentCount();
-		System.out.println(componentCount);
 		if(componentCount == 6) {
 			c.remove(5);
 			c.remove(4);
