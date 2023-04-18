@@ -11,7 +11,6 @@ public class main {
 		CardController cardController = new CardController();
 		Frame frame = new Frame();
 		
-		
 		int select;
 		while(true) {
 			System.out.print("[1]로그인 [2]회원가입 >> ");
@@ -24,18 +23,27 @@ public class main {
 				System.out.println("NICK 입력 : ");
 				String nick = sc.next();
 
-				
-				System.out.print("[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
-				int mode = sc.nextInt();
-				if(mode == 1) {
-					Card card1 = cardController.getRandomCard();
-					Card card2 = cardController.getRandomCard();
-					Card card3 = cardController.getRandomCard();
-					
-					frame.makeFlower(card1.getNumber());
-					frame.makeFlower(card2.getNumber());
-					frame.makeFlower(card3.getNumber());
+				while(true) {
+					System.out.print("[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
+					int mode = sc.nextInt();
+					if(mode == 1) {//게임시작
+						Card card1 = cardController.getRandomCard();
+						Card card2 = cardController.getRandomCard();
+						Card card3 = cardController.getRandomCard();
+						
+						frame.makeFlower(card1.getNumber());
+						frame.makeFlower(card2.getNumber());
+						frame.makeFlower(card3.getNumber());
+					}else if(mode == 2) {
+						
+					}else if(mode == 3) {
+						System.out.println("게임을 종료합니다");
+						break;
+					}else {
+						System.out.println("번호를 다시 입력해 주세요");
+					}
 				}
+				
 				
 				
 			}else if(select==2) {//회원가입
@@ -45,6 +53,8 @@ public class main {
 				String pw = sc.next();
 				System.out.println("NICK 입력 : ");
 				String nick = sc.next();
+				
+//				String join = dao.singupsingup(id, pw, nick);
 				
 				
 				
