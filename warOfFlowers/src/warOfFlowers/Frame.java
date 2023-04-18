@@ -86,6 +86,8 @@ public class Frame extends JFrame{
 		
 		imgLabel img = new imgLabel(21);
 		c.add(img);
+		revalidate();
+	    repaint();
 		
 		return cardNum;
 		
@@ -99,6 +101,8 @@ public class Frame extends JFrame{
 		for(int i=6; i<arr.size(); i++) {
 			imgLabel img = new imgLabel(i);
 			c.add(img);
+			revalidate();
+		    repaint();
 		}
 		
 	}
