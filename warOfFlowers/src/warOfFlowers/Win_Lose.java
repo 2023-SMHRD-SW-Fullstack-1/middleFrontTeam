@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 import javax.print.attribute.standard.Destination;
 public class Win_Lose {
+	
+	
 
 		
 	// 랜덤 받은 숫자 -> 몇월인지 확인
@@ -31,7 +33,10 @@ public class Win_Lose {
 			}
 		}
 		// 받은 패별 점수
-		public int score(int num1, int num2) {
+		public int score(int numA, int numB) {
+			int num1 = flowerNum(numA);
+			int num2 = flowerNum(numB);
+			
 			if (num1==3 && num2==8) {
 				return 38000;
 			}else if (num1==1 && num2==8){
