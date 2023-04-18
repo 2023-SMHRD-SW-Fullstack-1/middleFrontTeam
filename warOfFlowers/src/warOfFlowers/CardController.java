@@ -20,26 +20,25 @@ public class CardController {
 		return cardArray.get(number);
 	}
 	
-	public Card getRandomCard(int number) {
+	public Card getRandomCard() {
 		// 1~20 까지 랜덤카드 출력
 		Random rd = new Random();
 		int num = rd.nextInt(20) + 1;
 		Card card = new Card();
 		card.setNumber(num);
-		card.setImg(cardToAscii(num));
 		return card;
 		
 	}
 	
-	public String getAllFlowers() {
-		String temp = "";
-		for(int i=1; i<=20; i++) {
-			temp += cardToAscii(i);
-		}
-		return temp;
-	}
-	
-	
+//	public String getAllFlowers() {
+//		String temp = "";
+//		for(int i=1; i<=20; i++) {
+//			temp += cardToAscii(i);
+//		}
+//		return temp;
+//	}
+//	
+//	
 	
 	public String cardToAscii(int number) {
 		String temp = "";
