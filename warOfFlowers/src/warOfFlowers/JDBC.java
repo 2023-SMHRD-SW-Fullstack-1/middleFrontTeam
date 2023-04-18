@@ -41,6 +41,7 @@ public class JDBC {
 
 	// 회원가입
 	public boolean signup(String inputId, String inputPw, String InputNick) {
+		getConn();
 		try {
 			String sql = "select P_ID from PLAYER_TABLE";
 			pstm = conn.prepareStatement(sql);
@@ -61,11 +62,13 @@ public class JDBC {
 			if (result > 0) {
 				System.out.println("회원가입 성공!");
 			}
+			close();
 			return true;
 
 		} catch (SQLException e) {
 			System.out.println("쿼리문 오류");
 			e.printStackTrace();
+			close();
 			return false;
 		}
 
@@ -73,6 +76,7 @@ public class JDBC {
 
 	// 로그인
 	public boolean login(String inputId, String inputPw) {
+		getConn();
 		try {
 			String sql = "select P_ID, P_PASSWORD from PLAYER_TABLE where P_ID = ? and P_PASSWORD = ?";
 			pstm = conn.prepareStatement(sql);
@@ -82,6 +86,7 @@ public class JDBC {
 			while (rs.next()) {
 				if (rs.getString("P_ID").equals(inputId) && rs.getString("P_PASSWORD").equals(inputPw)) {
 					System.out.println("로그인 성공");
+					close();
 					return true;
 				}
 				
@@ -90,11 +95,13 @@ public class JDBC {
 			System.out.println("쿼리문 오류");
 			e.printStackTrace();
 		}
+		close();
 		return false;
 	}
 	
 	// 포인트 받기
 	public int getPoint(String id) {
+		getConn();
 		int point = 0;
 		try {
 			String sql = "select P_Point from PLAYER_TABLE where P_ID = ?";
@@ -107,11 +114,13 @@ public class JDBC {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		close();
 		return point;
 	}
 	
 	// 포인트 기록
 	public void setPoint(String id, int point) {
+		getConn();
 		try {
 			String sql = "update PLAYER_TABLE set P_POINT = ? where P_ID = ?";
 			pstm = conn.prepareStatement(sql);
@@ -124,10 +133,12 @@ public class JDBC {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		close();
 	}
 	
 	// 랭킹 출력
 	public void getRank() {
+		getConn();
 		try {
 			String sql = "select rownum, A.* from (select P_NICKNAME, P_POINT from PLAYER_TABLE order by P_POINT DESC) A";
 			pstm = conn.prepareStatement(sql);
@@ -139,6 +150,7 @@ public class JDBC {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+		close();
 	}
 
 	// 연결
