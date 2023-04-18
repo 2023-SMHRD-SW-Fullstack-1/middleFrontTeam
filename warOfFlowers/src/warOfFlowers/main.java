@@ -41,11 +41,16 @@ public class main {
 						frame.makeFlower(card1.getNumber());
 						frame.makeFlower(card2.getNumber());
 						frame.makeFlower(card3.getNumber());
-						System.out.println("[1]call [2]die >> ");
+						System.out.print("[1]콜 [2]다이 >> ");
 						select = sc.nextInt();
 						if(select==1) {
 							
+							frame.makeFlower(card1.getNumber());
+							frame.makeFlower(card2.getNumber());
+							frame.makeFlower(card3.getNumber());
+							
 						}else if(select==2) {
+							frame.deleteFlower();
 							
 						}else {
 							System.out.println("번호를 다시 입력하세요");
