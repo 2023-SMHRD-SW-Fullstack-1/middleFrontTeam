@@ -4,6 +4,7 @@ public class Card {
 	
 	private int number;
 	private String img;
+	public String path;
 	
 	public Card() {
 	}

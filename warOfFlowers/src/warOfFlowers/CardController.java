@@ -580,9 +580,9 @@ public class CardController {
 	}
 	
 	// 테스트
-	public static void main(String[] args) {
-		CardController a = new CardController();
-		System.out.println(a.getAllFlowers());
-	}
+//	public static void main(String[] args) {
+//		CardController a = new CardController();
+//		System.out.println(a.getAllFlowers());
+//	}
 	
 }
