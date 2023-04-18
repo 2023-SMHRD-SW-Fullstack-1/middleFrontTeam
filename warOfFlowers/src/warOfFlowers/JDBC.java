@@ -30,7 +30,7 @@ public class JDBC {
 	db.getConn();
 	
 	연결해제 (리턴타입 : void)
-	db.disconnect;
+	db.close;
 	*/
 	
 	private Connection conn = null;
@@ -161,7 +161,7 @@ public class JDBC {
 	}
 
 	// 연결해제
-	public void disconnect() {
+	public void close() {
 		if (rs != null) {
 			try {
 				if (rs != null) {
