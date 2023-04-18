@@ -19,6 +19,7 @@ public class Frame extends JFrame{
 	ArrayList<Integer> arr = new ArrayList<>();
 	
 	public Frame() {
+		// 리사이즈 못하게 막기
 		setTitle("warOfFlowers");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         c = getContentPane();

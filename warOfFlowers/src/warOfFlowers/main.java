@@ -79,6 +79,10 @@ public class main {
 									int com1_1 = frame.makeFakeFlower();
 									int com2_1 = frame.makeFakeFlower();
 									
+									
+									
+									
+									
 									System.out.print("1.오픈 2.다이 >> ");
 									select = sc.nextInt();
 									if(select==1) {
