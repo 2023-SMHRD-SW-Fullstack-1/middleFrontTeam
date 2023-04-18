@@ -1,15 +1,16 @@
 package warOfFlowers;
 
-public class Player {
+public class PlayerDTO {
 	
+	private String id;
 	private String nickname;
 	private int point;
-	private String id;
 	
-	public Player(String nickname, int point, String id) {
+	
+	public PlayerDTO(String id, String nickname, int point) {
+		this.id = id;
 		this.nickname = nickname;
 		this.point = point;
-		this.id = id;
 	}
 
 	public String getNickname() {

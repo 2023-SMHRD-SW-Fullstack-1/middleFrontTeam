@@ -7,7 +7,7 @@ public class main {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		JDBC jdbc = new JDBC();
+		PlayerDAO jdbc = new PlayerDAO();
 		CardController cardController = new CardController();
 		Frame frame = new Frame();
 		
