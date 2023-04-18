@@ -62,6 +62,7 @@ public class main {
 						
 					}else if(mode == 3) {
 						System.out.println("게임을 종료합니다");
+						frame.deleteFlower();
 						break;
 					}else {
 						System.out.println("번호를 다시 입력해 주세요");

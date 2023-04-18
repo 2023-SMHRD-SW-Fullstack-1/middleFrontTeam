@@ -39,6 +39,8 @@ public class Frame extends JFrame{
 			c.remove(5);
 			c.remove(4);
 			c.remove(3);
+			revalidate();
+		    repaint();
 		}else if(componentCount == 9) {
 			c.remove(8);
 			c.remove(7);
@@ -46,9 +48,14 @@ public class Frame extends JFrame{
 			c.remove(5);
 			c.remove(4);
 			c.remove(3);
+			revalidate();
+		    repaint();
 		}
 	}
 	
+	public void showPriority() {
+		
+	}
 	
 	
 }
