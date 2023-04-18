@@ -6,7 +6,7 @@ import javax.print.attribute.standard.Destination;
 public class Win_Lose {
 
 		
-		// 랜덤 받은 숫자 -> 몇월인지 확인
+	// 랜덤 받은 숫자 -> 몇월인지 확인
 		public int flowerNum(int num) {
 			if(num==1||num==2) {
 				return 1;
@@ -30,26 +30,28 @@ public class Win_Lose {
 				return 10;
 			}
 		}
-		// 패 점수
+		
 		public int score(int num1, int num2) {
-			if(num1==num2) {
-				return num1;
-			}else if(num1==3&&num2==8) {
-				return 3800;
-			}else if(num1==1&&num2==8) {
-				return 1800;
-			}else if(num1==1&&num2==3) {
-				return 1300;
-			}else if (num1==1&&num2==4) {
-				return 1400;
-			}else if (num1==1&&num2==9) {
-				return 1900;
-			}else if (num1==1&&num2==10) {
-				return 1100;
-			}else if (num1==4&&num2==10) {
-				return 410;
-			}else if (num1==4&&num2==6) {
-				return 460;
+			if (num1==3 && num2==8) {
+				return 38000;
+			}else if (num1==1 && num2==8){
+				return 28000;
+			}else if (num1==1 && num2==3){
+				return 18000;
+			}else if (num1==num2) {
+				return num1*1000;
+			}else if (num1==1 && num2==2) {
+				return 900;
+			}else if (num1==1 && num2==4) {
+				return 800;
+			}else if (num1==1 && num2==9) {
+				return 700;
+			}else if (num1==1 && num2==10) {
+				return 600;
+			}else if (num1==4 && num2==10) {
+				return 500;
+			}else if (num1==4 && num2==6) {
+				return 400;
 			}else if ((num1+num2)%10 ==9) {
 				return 90;
 			}else if ((num1+num2)%10 ==8) {
@@ -69,10 +71,10 @@ public class Win_Lose {
 			}else if ((num1+num2)%10 ==1) {
 				return 10;
 			}else {
-				return 0;
+				return 1;
 			}
 		}
-		// 점수 비교후 이겼으면 true 졌으면 false 반환 
+		
 		public boolean result (int user, int computer1, int computer2) {
 			int max=0;
 			if(computer1<computer2) {
