@@ -13,7 +13,8 @@ public class main {
 		Frame frame = new Frame();
 		Win_Lose winLose = new Win_Lose();
 		
-		PlayerDTO player;
+		
+		PlayerDTO player = null;
 		int select;
 		boolean check = false;
 	
@@ -39,13 +40,13 @@ public class main {
 					
 				}else if(select==2) {//회원가입
 						System.out.print("ID 입력 : ");
-						String id = sc.next();
+						String joinId = sc.next();
 						System.out.print("PW 입력 : ");
-						String pw = sc.next();
+						String joinPw = sc.next();
 						System.out.print("NICK 입력 : ");
-						String nick = sc.next();
+						String joinNick = sc.next();
 						
-						Boolean join = dao.signup(id, pw, nick);
+						Boolean join = dao.signup(joinId, joinPw, joinNick);
 						if(join==true) {
 							System.out.println("회원가입 완료!");
 						}else {
@@ -74,12 +75,16 @@ public class main {
 								select = sc.nextInt();
 								if(select==1) {//콜
 					
-									int user_1 = frame.makeFlower();
-									int com1_1 = frame.makeFlower();
-									int com2_1 = frame.makeFlower();
+									int user_1 = frame.makeFakeFlower();
+									int com1_1 = frame.makeFakeFlower();
+									int com2_1 = frame.makeFakeFlower();
 									
 									System.out.print("1.오픈 2.다이 >> ");
 									select = sc.nextInt();
+									if(select==1) {
+									frame.openFlower();
+						
+									}
 									int user_score= winLose.score(user, user_1);
 									int com1_score= winLose.score(com1, com1_1);
 									int com2_score= winLose.score(com2, com2_1);
@@ -88,6 +93,8 @@ public class main {
 									System.out.println("컴퓨터2의 점수는 : " + com2_score);
 									if(winLose.result(user_score, com1_score, com2_score)) {
 										System.out.println("이겼습니다");
+										player.setPoint(player.getPoint()+user_score);
+										dao.setPoint(player);
 									}else {
 										System.out.println("졌습니다");
 									}
