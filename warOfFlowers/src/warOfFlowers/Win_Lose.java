@@ -30,7 +30,7 @@ public class Win_Lose {
 				return 10;
 			}
 		}
-		
+		// 받은 패별 점수
 		public int score(int num1, int num2) {
 			if (num1==3 && num2==8) {
 				return 38000;
@@ -74,7 +74,7 @@ public class Win_Lose {
 				return 1;
 			}
 		}
-		
+		// 점수 비교후 이겼으면 true 졌으면 false
 		public boolean result (int user, int computer1, int computer2) {
 			int max=0;
 			if(computer1<computer2) {
