@@ -8,6 +8,8 @@ public class main {
 		
 		Scanner sc = new Scanner(System.in);
 		JDBC jdbc = new JDBC();
+		CardController cardController = new CardController();
+		Frame frame = new Frame();
 		
 		
 		int select;
@@ -24,7 +26,16 @@ public class main {
 
 				
 				System.out.print("[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
-				
+				int mode = sc.nextInt();
+				if(mode == 1) {
+					Card card1 = cardController.getRandomCard();
+					Card card2 = cardController.getRandomCard();
+					Card card3 = cardController.getRandomCard();
+					
+					frame.makeFlower(card1.getNumber());
+					frame.makeFlower(card2.getNumber());
+					frame.makeFlower(card3.getNumber());
+				}
 				
 				
 			}else if(select==2) {//회원가입
