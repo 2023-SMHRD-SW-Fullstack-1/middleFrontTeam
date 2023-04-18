@@ -7,10 +7,11 @@ public class main {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		PlayerDAO jdbc = new PlayerDAO();
+		PlayerDAO dao = new PlayerDAO();
 		CardController cardController = new CardController();
 		Frame frame = new Frame();
 		
+		PlayerDTO player;
 		int select;
 		while(true) {
 			System.out.print("[1]로그인 [2]회원가입 >> ");
@@ -20,8 +21,14 @@ public class main {
 				String id = sc.next();
 				System.out.print("PW 입력 : ");
 				String pw = sc.next();
-				System.out.println("NICK 입력 : ");
-				String nick = sc.next();
+				
+				player = dao.login(id, pw);
+				if(player != null) {
+					System.out.println(player.getNickname()+"님이 로그인 되었습니다");
+				}else {
+					System.out.println("로그인 실패! 다시 입력 해주세요");
+				}
+				
 
 				while(true) {
 					System.out.print("[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
@@ -34,7 +41,19 @@ public class main {
 						frame.makeFlower(card1.getNumber());
 						frame.makeFlower(card2.getNumber());
 						frame.makeFlower(card3.getNumber());
+						System.out.println("[1]call [2]die >> ");
+						select = sc.nextInt();
+						if(select==1) {
+							
+						}else if(select==2) {
+							
+						}else {
+							System.out.println("번호를 다시 입력하세요");
+						}
+						
+						
 					}else if(mode == 2) {
+						
 						
 					}else if(mode == 3) {
 						System.out.println("게임을 종료합니다");
@@ -51,10 +70,15 @@ public class main {
 				String id = sc.next();
 				System.out.print("PW 입력 : ");
 				String pw = sc.next();
-				System.out.println("NICK 입력 : ");
+				System.out.print("NICK 입력 : ");
 				String nick = sc.next();
 				
-//				String join = dao.singupsingup(id, pw, nick);
+				Boolean join = dao.signup(id, pw, nick);
+				if(join==true) {
+					System.out.println("회원가입 완료!");
+				}else {
+					System.out.println("중복된 아이디 입니다.");
+				}
 				
 				
 				
