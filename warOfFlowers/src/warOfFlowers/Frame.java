@@ -30,21 +30,24 @@ public class Frame extends JFrame{
 		boolean result = false;
 		for(int i=0; i<arr.size(); i++) {
 			if(arr.get(i) == num) {
-				result = false;
+				result = true;
 			}
 		}
-		return true;
+		return result;
 		
 	}
 	
 	public void makeFlower() {
 		CardController cc = new CardController();
 		int cardNum;
-
+//		cardNum = cc.getRandomCard().getNumber();
+//		System.out.println(cardNum);
+		
+		
 		while(true) {
 			cardNum = cc.getRandomCard().getNumber();
 			if(isDuplicate(cardNum)) {
-				//
+				cardNum = cc.getRandomCard().getNumber();
 			}else {
 				arr.add(cardNum);
 				imgLabel img = new imgLabel(cardNum);
