@@ -5,32 +5,30 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class JDBC {
+public class PlayerDAO {
 
 	/* 사용예시
-	JDBC db = new JDBC();
+	PlayerDAO dao = new JDBC();
 	
 	회원가입 (리턴타입 : boolean)
-	db.signupsignup(String inputId, String inputPw, String InputNick);
+	dao.signupsignup(String inputId, String inputPw, String InputNick);
 	
-	로그인 (리턴타입 : boolean)
-	db.login(String inputId, String inputPw);
-	
-	포인트 받기 (리턴타입 : int)
-	db.getPoint(String id);
+	로그인 (리턴타입 : PlayerDTO)
+	dao.login(String inputId, String inputPw);
 	
 	포인트 기록 (리턴타입 : void)
-	db.setPoint(String id, int point);
+	dao.setPoint(PlayerDTO pdto);
 	
-	랭킹 출력 (리턴타입 : void)
-	db.getRank();
+	랭킹 출력 (리턴타입 : ArrayList<PlayDTO>)
+	dao.getRankedList();
 	
 	연결 (리턴타입 : void)
-	db.getConn();
+	dao.getConn();
 	
 	연결해제 (리턴타입 : void)
-	db.close;
+	dao.close;
 	*/
 	
 	private Connection conn = null;
@@ -48,7 +46,6 @@ public class JDBC {
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				if (rs.getString("P_ID").equals(inputId)) {
-					System.out.println("이미 존재하는 ID입니다.");
 					return false;
 				}
 			}
@@ -57,11 +54,7 @@ public class JDBC {
 			pstm.setString(1, inputId);
 			pstm.setString(2, inputPw);
 			pstm.setString(3, InputNick);
-
-			int result = pstm.executeUpdate();
-			if (result > 0) {
-				System.out.println("회원가입 성공!");
-			}
+			pstm.executeUpdate();
 			close();
 			return true;
 
@@ -75,61 +68,35 @@ public class JDBC {
 	}
 
 	// 로그인
-	public boolean login(String inputId, String inputPw) {
+	public PlayerDTO login(String inputId, String inputPw) {
 		getConn();
+		PlayerDTO pdto = null;
 		try {
-			String sql = "select P_ID, P_PASSWORD from PLAYER_TABLE where P_ID = ? and P_PASSWORD = ?";
+			String sql = "select P_ID, P_NICKNAME, P_POINT, P_PASSWORD from PLAYER_TABLE where P_ID = ? and P_PASSWORD = ?";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, inputId);
 			pstm.setString(2, inputPw);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				if (rs.getString("P_ID").equals(inputId) && rs.getString("P_PASSWORD").equals(inputPw)) {
-					System.out.println("로그인 성공");
-					close();
-					return true;
-				}
-				
+				pdto = new PlayerDTO(rs.getString(1), rs.getString(2), rs.getInt(3));
 			}
 		} catch (SQLException e) {
 			System.out.println("쿼리문 오류");
 			e.printStackTrace();
 		}
 		close();
-		return false;
-	}
-	
-	// 포인트 받기
-	public int getPoint(String id) {
-		getConn();
-		int point = 0;
-		try {
-			String sql = "select P_Point from PLAYER_TABLE where P_ID = ?";
-			pstm = conn.prepareStatement(sql);
-			pstm.setString(1, id);
-			rs = pstm.executeQuery();
-			while (rs.next()) {
-				point = rs.getInt("P_POINT");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		close();
-		return point;
+		return pdto;
 	}
 	
 	// 포인트 기록
-	public void setPoint(String id, int point) {
+	public void setPoint(PlayerDTO pdto) {
 		getConn();
 		try {
 			String sql = "update PLAYER_TABLE set P_POINT = ? where P_ID = ?";
 			pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, point);
-			pstm.setString(2, id);
-			int result = pstm.executeUpdate();
-			if (result > 0) {
-				System.out.println("기록됨");
-			}
+			pstm.setInt(1, pdto.getPoint());
+			pstm.setString(2, pdto.getId());
+			pstm.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -137,24 +104,25 @@ public class JDBC {
 	}
 	
 	// 랭킹 출력
-	public void getRank() {
+	public ArrayList<PlayerDTO> getRankedList() {
+		ArrayList<PlayerDTO> rankedList = new ArrayList<PlayerDTO>();
 		getConn();
 		try {
-			String sql = "select rownum, A.* from (select P_NICKNAME, P_POINT from PLAYER_TABLE order by P_POINT DESC) A";
+			String sql = "select rownum, A.* from (select P_ID, P_NICKNAME, P_POINT from PLAYER_TABLE order by P_POINT DESC) A";
 			pstm = conn.prepareStatement(sql);
 			rs = pstm.executeQuery();
-			System.out.println("등수\t닉네임\t점수");
 			while (rs.next()) {
-				System.out.printf("%d\t%s\t%d\n", rs.getInt(1), rs.getString(2), rs.getInt(3));
+				rankedList.add(new PlayerDTO(rs.getString(2), rs.getString(3), rs.getInt(4)));
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
 		close();
+		return rankedList;
 	}
 
 	// 연결
-	public void getConn() {
+	private void getConn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
@@ -173,7 +141,7 @@ public class JDBC {
 	}
 
 	// 연결해제
-	public void close() {
+	private void close() {
 		if (rs != null) {
 			try {
 				if (rs != null) {
@@ -191,6 +159,25 @@ public class JDBC {
 		}
 		//System.out.println("연결해제");
 	}
+	
+//	// 포인트 받기
+//		public int getPoint(String id) {
+//			getConn();
+//			int point = 0;
+//			try {
+//				String sql = "select P_Point from PLAYER_TABLE where P_ID = ?";
+//				pstm = conn.prepareStatement(sql);
+//				pstm.setString(1, id);
+//				rs = pstm.executeQuery();
+//				while (rs.next()) {
+//					point = rs.getInt("P_POINT");
+//				}
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//			close();
+//			return point;
+//		}
 	
 //	// 닉네임 받기
 //	public String getNick(String id) {
