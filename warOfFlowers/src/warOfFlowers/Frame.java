@@ -2,10 +2,16 @@ package warOfFlowers;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Image;
 import java.util.ArrayList;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Frame extends JFrame{
 	
@@ -37,7 +43,7 @@ public class Frame extends JFrame{
 		
 	}
 	
-	public void makeFlower() {
+	public int makeFlower() {
 		CardController cc = new CardController();
 		int cardNum;
 //		cardNum = cc.getRandomCard().getNumber();
@@ -57,6 +63,7 @@ public class Frame extends JFrame{
 				break;
 			}
 		}
+		return cardNum;
 		
 	}
 	
@@ -82,6 +89,13 @@ public class Frame extends JFrame{
 	
 	public void showPriority() {
 		
+		String filePath = "src/flowersImg/zokbo.jpg";
+		ImageIcon icon = new ImageIcon(filePath);
+		Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
+		Icon newIcon = new ImageIcon(image);
+		JLabel label = new JLabel(newIcon);
+		label.setPreferredSize(new Dimension(500, 500));
+		JOptionPane.showMessageDialog(null, label);
 	}
 	
 	
