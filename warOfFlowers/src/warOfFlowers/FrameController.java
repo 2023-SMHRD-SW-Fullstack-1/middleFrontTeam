@@ -77,7 +77,13 @@ public class FrameController {
 		
 		return cardNum;
 		
-		
+	}
+	
+	public void makeBlankFlower() {
+		CardController cc = new CardController();
+		BlankLabel blank = new BlankLabel();
+		c.add(blank);
+		rePrint();
 	}
 	
 	public void openFlower() {
