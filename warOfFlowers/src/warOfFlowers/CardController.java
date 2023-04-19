@@ -5,8 +5,7 @@ import java.util.Random;
 
 public class CardController {
 	
-	ArrayList<Card> cardArray = new ArrayList<Card>();
-
+	private ArrayList<Card> cardArray = new ArrayList<Card>();
 	
 	public CardController() {
 		for(int i=1; i<=20; i++) {
@@ -29,14 +28,4 @@ public class CardController {
 		return card;
 		
 	}
-	
-	
-	
-	
-	// 테스트
-//	public static void main(String[] args) {
-//		CardController a = new CardController();
-//		System.out.println(a.getAllFlowers());
-//	}
-	
 }
