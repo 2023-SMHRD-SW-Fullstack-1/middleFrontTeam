@@ -49,7 +49,7 @@ public class PlayerDAO {
 					return false;
 				}
 			}
-			sql = "insert into PLAYER_TABLE values (?, ?, ?, 0)";
+			sql = "insert into PLAYER_TABLE values (?, ?, ?, 1000)";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, inputId);
 			pstm.setString(2, inputPw);
