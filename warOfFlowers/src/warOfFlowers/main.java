@@ -13,6 +13,7 @@ public class main {
 		CardController cardController = new CardController();
 		Frame frame = new Frame();
 		Win_Lose winLose = new Win_Lose();
+		SoundController sound = new SoundController();
 
 		int select;
 		boolean check = false;
@@ -72,6 +73,7 @@ public class main {
 
 					frame.deleteFlower();
 					if (mode == 1) {// 게임시작
+						sound.playShuffle();
 
 						int user = frame.makeFlower();
 						int com1 = frame.makeFlower();
@@ -81,7 +83,7 @@ public class main {
 						select = sc.nextInt();
 						if (select == 1) {// 콜
 
-							int user_1 = frame.makeFakeFlower();
+							int user_1 = frame.makeFlower();
 							int com1_1 = frame.makeFakeFlower();
 							int com2_1 = frame.makeFakeFlower();
 
