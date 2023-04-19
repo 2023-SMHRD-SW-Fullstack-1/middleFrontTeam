@@ -24,10 +24,11 @@ public class Frame extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         c = getContentPane();
      
-        c.setLayout(new FlowLayout(FlowLayout.LEFT, 50, 30));
+        c.setLayout(new FlowLayout(FlowLayout.LEFT, 50, 12));
         c.add(new PeopleLabel());
         c.add(new ComputerLabel());
         c.add(new ComputerLabel());
+
         c.setBackground(new Color(77,70,24));
 		setSize(480, 480);
 		setResizable(false);
@@ -82,7 +83,6 @@ public class Frame extends JFrame{
 				cardNum = cc.getRandomCard().getNumber();
 			}else {
 				arr.add(cardNum);
-				System.out.println(cardNum);
 				break;
 			}
 		}
@@ -98,9 +98,9 @@ public class Frame extends JFrame{
 	}
 	
 	public void openFlower() {
-		c.remove(8);
-		c.remove(7);
-		c.remove(6);
+		c.remove(11);
+		c.remove(10);
+		c.remove(9);
 		for(int i=3; i<arr.size(); i++) {
 			imgLabel img = new imgLabel(arr.get(i));
 			c.add(img);
@@ -113,20 +113,20 @@ public class Frame extends JFrame{
 	
 	public void deleteFlower() {
 		int componentCount = c.getComponentCount();
-		if(componentCount == 6) {
-			c.remove(5);
-			c.remove(4);
-			c.remove(3);
-			arr.clear();
-			revalidate();
-		    repaint();
-		}else if(componentCount == 9) {
+		if(componentCount == 9) {
 			c.remove(8);
 			c.remove(7);
 			c.remove(6);
-			c.remove(5);
-			c.remove(4);
-			c.remove(3);
+			arr.clear();
+			revalidate();
+		    repaint();
+		}else if(componentCount == 12) {
+			c.remove(11);
+			c.remove(10);
+			c.remove(9);
+			c.remove(8);
+			c.remove(7);
+			c.remove(6);
 			arr.clear();
 			revalidate();
 		    repaint();
@@ -143,7 +143,11 @@ public class Frame extends JFrame{
 		JOptionPane.showMessageDialog(null, label, "족보", JOptionPane.PLAIN_MESSAGE);
 	}
 	
-
+	public void makePlayer() {
+        c.add(new PlayerText(main.player));
+        c.add(new ComputerText());
+        c.add(new ComputerText());
+	}
 	
 	
 }

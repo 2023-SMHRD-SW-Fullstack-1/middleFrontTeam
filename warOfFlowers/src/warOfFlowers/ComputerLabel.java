@@ -13,5 +13,6 @@ public class ComputerLabel extends JLabel{
 		Image image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 		Icon newIcon = new ImageIcon(image);
 		setIcon(newIcon);
+
 	}
 }
