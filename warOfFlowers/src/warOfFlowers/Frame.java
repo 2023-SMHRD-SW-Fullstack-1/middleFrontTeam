@@ -147,6 +147,8 @@ public class Frame extends JFrame{
         c.add(new PlayerText(main.player));
         c.add(new ComputerText());
         c.add(new ComputerText());
+        revalidate();
+	    repaint();
 	}
 	
 	

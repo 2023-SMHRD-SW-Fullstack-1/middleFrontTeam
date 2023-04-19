@@ -15,7 +15,7 @@ public class PlayerText extends JPanel{
 		
 		setLayout(new GridLayout(2,1));
 		setSize(90,60);
-		
+		setOpaque(false);
 		JLabel userNick = new JLabel();
 		userNick.setText(player.getNickname());
 		userNick.setPreferredSize(new Dimension(90,30));
@@ -28,7 +28,7 @@ public class PlayerText extends JPanel{
 		
 		
 		JLabel userScore = new JLabel();
-		userScore.setText(player.getNickname());
+		userScore.setText("점수: "+player.getPoint());
 		userScore.setPreferredSize(new Dimension(90,30));
 		userScore.setFont(bFont);
 		userScore.setForeground(Color.WHITE);
