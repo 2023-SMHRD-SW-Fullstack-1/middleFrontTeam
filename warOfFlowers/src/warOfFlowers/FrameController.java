@@ -114,8 +114,10 @@ public class FrameController {
 			arr.clear();
 			c.revalidate();
 		    c.repaint();
+
 		}
 	}
+	
 	
 	public void showPriority() {
 //		String filePath = "src/flowersImg/zokbo.jpg";
