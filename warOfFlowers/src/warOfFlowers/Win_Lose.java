@@ -6,7 +6,6 @@ import javax.print.attribute.standard.Destination;
 public class Win_Lose {
 	
 	
-
 	// 랜덤 받은 숫자 -> 몇월인지 확인
     public int flowerNum(int num) {
        if(num==1) {
@@ -54,27 +53,40 @@ public class Win_Lose {
        }else if (num1==11 && num2==33||num1==33 && num2==11){//13광땡
           num=13000;
           return num;
-       }else if (num1==num2) {//땡
-          num = num1*1000;
+       }else if ((num1==num2)
+    		   ||((num1==33 && num2==3)||(num1==33 && num2==3))
+    		   ||((num1==11 && num2==1)||(num1==1 && num2==11))
+    		   ||((num1==88 && num2==8)||(num1==8 && num2==88))) {//땡 1-10땡
+    	   
+    	   int min=num1 ;
+    	   if(num1>num2) {
+    		   min=num2;
+    	   }
+    	   num = min*1000;
           return num;
-       }else if (num1==11 && num2==2||num1==11 && num2==2) {//알리 1월2월
+       }else if (num1==11 && num2==2||num1==2 && num2==11) {//알리 1월2월
           num=900;
           return num;
-       }else if (num1==11 && num2==4||num1==11 && num2==4) {//독사 1월4월
+       }else if (num1==11 && num2==4||num1==4 && num2==11) {//독사 1월4월
           num=800;
           return num;
-       }else if (num1==11 && num2==9||num1==11 && num2==9) {//구삥 1월9월
+       }else if (num1==11 && num2==9||num1==9 && num2==11) {//구삥 1월9월
           num=700;
           return num;
-       }else if (num1==11 && num2==10||num1==11 && num2==10) {//장삥 1월10월
+       }else if (num1==11 && num2==10||num1==10 && num2==11) {//장삥 1월10월
           num=600;
           return num;
-       }else if (num1==4 && num2==10) {//장사 4월10일
+       }else if (num1==4 && num2==10||num1==10 && num2==4) {//장사 4월10일
           num=500;
           return num;
-       }else if (num1==4 && num2==6) {//세륙(사육)4월6월
+       }else if (num1==4 && num2==6||num1==6 && num2==4) {//세륙(사육)4월6월
           num=400;
           return num;
+          
+       }else if ((num1==3 && num2==7)||(num1==7 && num2==3)
+    		   	||(num1==33 && num2==7)||(num1==7 && num2==33)) {//땡잡이
+           num=0;
+           return num;
        }else if ((num1+num2)%10 ==9) {//갑오 9
           num=90;
           return num;
@@ -112,13 +124,14 @@ public class Win_Lose {
        
        if(num==38000) {
           return "삼팔광땡"; 
-          
        }else if(num ==28000 ) {
           return "일팔광땡";
        }else if(num==13000) {
           return "일삼광땡";
        }else if(num==10000) {
           return "10땡";
+       }else if (num==9500) {
+    	   return "땡잡이";
        }else if(num==9000) {
           return "9땡";
        }else if(num==8000) {
@@ -167,28 +180,65 @@ public class Win_Lose {
           return "2끗";
        }else if(num==10) {
           return "1끗";
-       }else {
+       }else if(num==1){
           return "망통";
-       }
+       }else if(num==0) {
+    	  return "땡잡이(망통)";
+       }else {
+    	   return "망통";
+	}
     }
     
     // 점수 비교후 이겼으면 true 졌으면 false
-    public boolean result (int user, int computer1, int computer2) {
-    	
+    public int result (int user, int computer1, int computer2) {
        int max=0;
+       if(user==0 && ((computer1==9000||computer2==9000)
+    		   		||(computer1==8000||computer2==8000)
+    		   		||(computer1==7000||computer2==7000)
+    		   		||(computer1==6000||computer2==6000)
+    		   		||(computer1==5000||computer2==5000)
+    		   		||(computer1==4000||computer2==4000)
+    		   		||(computer1==3000||computer2==3000)
+    		   		||(computer1==2000||computer2==2000)
+    		   		||(computer1==1000||computer2==1000))) {
+    	   user=9500;
+       }
+       if(computer1==0 && ((user==9000||computer2==9000)
+		   		||(user==8000||computer2==8000)
+		   		||(user==7000||computer2==7000)
+		   		||(user==6000||computer2==6000)
+		   		||(user==5000||computer2==5000)
+		   		||(user==4000||computer2==4000)
+		   		||(user==3000||computer2==3000)
+		   		||(user==2000||computer2==2000)
+		   		||(user==1000||computer2==1000))) {
+    	   computer1=9500;
+       }
+       if(computer2==0 && ((user==9000||computer1==9000)
+		   		||(user==8000||computer1==8000)
+		   		||(user==7000||computer1==7000)
+		   		||(user==6000||computer1==6000)
+		   		||(user==5000||computer1==5000)
+		   		||(user==4000||computer1==4000)
+		   		||(user==3000||computer1==3000)
+		   		||(user==2000||computer1==2000)
+		   		||(user==1000||computer1==1000))) {
+    	   computer2=9500;
+       }
        if(computer1<computer2) {
           max=computer2;
        }else {
           max=computer1;
        }
        if(user>max) {
-          return true;
-       }else{
-          return false;
+          return 2;
+       }else if(user==max){
+          return 1;
+       }else {
+    	   return 0;
        }
        
     }
-
 		
 	
 
