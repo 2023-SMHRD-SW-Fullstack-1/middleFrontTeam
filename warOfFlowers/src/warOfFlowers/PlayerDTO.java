@@ -38,6 +38,10 @@ public class PlayerDTO {
 	}
 	
 	
+	public void calPoint(int point) {
+		this.point += point;
+	}
+	
 	
 	
 }
