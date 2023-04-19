@@ -30,6 +30,7 @@ public class Frame extends JFrame{
         c.add(new ComputerLabel());
         c.setBackground(new Color(77,70,24));
 		setSize(480, 480);
+		setResizable(false);
 		setVisible(true);
 	}
 	
