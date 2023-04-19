@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
-		public static PlayerDTO player = null;
-		
+	public static PlayerDTO player = null;
 
 	public static void main(String[] args) {
 
@@ -15,30 +14,27 @@ public class main {
 		Win_Lose winLose = new Win_Lose();
 		SoundController sound = new SoundController();
 		DieAlgorithm die = new DieAlgorithm();
-	 
-		
-		
+
 		int select;
 		boolean check = false;
 		int stop = 0;
 		int user = 0;
-		int user_1=0;
-		int com1=0;
-		int com1_1=0;
-		int com2=0;
-		int com2_1=0;
-		
-		
-
+		int user_1 = 0;
+		int user_score = 0;
+		int com1 = 0;
+		int com1_1 = 0;
+		int com1_score = 0;
+		int com2 = 0;
+		int com2_1 = 0;
+		int com2_score = 0;
 
 		while (stop == 0) {
 
-		
 			if (check == false) {
-				
+
 				System.out.println("\r\n"
-						+ "◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇\r\n"
-						+ "◇                  _______. __    __  .___________.         _______       ___                      ◇\r\n"
+						+ "◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇\r\n"
+						+ "◇                  _______. __    __  .___________.         _______       ___                     ◇\r\n"
 						+ "◇                  /       ||  |  |  | |           |        |       \\     /   \\                   ◇\r\n"
 						+ "◇                 |   (----`|  |  |  | `---|  |----` ______ |  .--.  |   /  ^  \\                  ◇\r\n"
 						+ "◇                  \\   \\    |  |  |  |     |  |     |______||  |  |  |  /  /_\\  \\                 ◇\r\n"
@@ -52,24 +48,22 @@ public class main {
 						+ "◇	　　ᕱ ᕱ ||                                                                                 ◇\r\n"
 						+ "◇	　 ( ･ω･ ||                                                                                 ◇\r\n"
 						+ "◇	　 /　つΦ                                                                                   ◇\r\n"
-						+ "◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇");
+						+ "◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇");
 				System.out.println();
-				System.out.printf("%50s","[1]로그인    [2]회원가입 ");
+				System.out.printf("%50s", "[1]로그인    [2]회원가입 ");
 				select = sc.nextInt();
 				if (select == 1) { // 로그인
-					System.out.printf("%40s","ID 입력 : ");
+					System.out.printf("%40s", "ID 입력 : ");
 					String id = sc.next();
-					System.out.printf("%40s","PW 입력 : ");
+					System.out.printf("%40s", "PW 입력 : ");
 					String pw = sc.next();
-					System.out.printf("%40s","♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥");
-					System.out.println();
-					
+					System.out.println("\n");
 
 					player = dao.login(id, pw);
 					if (player != null) {
-						System.out.printf("%50s",player.getNickname() + "님이 로그인 되었습니다."+"\n");
-						System.out.printf("%50s",player.getNickname() + "님 현재 포인트 : " + player.getPoint()+"\n");
-						System.out.println();
+						System.out.printf("%55s", player.getNickname() + "님이 로그인 되었습니다." + "\n");
+						System.out.printf("%55s", player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
+						System.out.println("\n");
 						check = true;
 						frame.makePlayer();
 						continue;
@@ -85,7 +79,7 @@ public class main {
 					System.out.print("NICK 입력 : ");
 					String joinNick = sc.next();
 
-					if (joinNick.length() > 7 || joinId.length() > 7 || joinNick.length()<3 || joinId.length() < 3) {
+					if (joinNick.length() > 7 || joinId.length() > 7 || joinNick.length() < 3 || joinId.length() < 3) {
 						System.out.println("ID와 NICK은 3글자 이상 최대 7글자까지 가능합니다.");
 						continue;
 					}
@@ -105,13 +99,12 @@ public class main {
 			if (check == true) {
 				while (true) {
 
-					System.out.printf("%55s","[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
+					System.out.printf("%55s", "[1]게임시작 [2]랭킹조회 [3]게임종료");
 					int mode = sc.nextInt();
 
 					frame.deleteFlower();
-					if (mode == 1 && player.getPoint()>=0) {// 게임시작
+					if (mode == 1 && player.getPoint() >= 0) {// 게임시작
 						sound.playShuffle();
-					
 
 						user = frame.makeFlower();
 						com1 = frame.makeFlower();
@@ -119,34 +112,67 @@ public class main {
 						die.setC1(die.die(com1, user, com2));
 						die.setC2(die.die(com2, user, com1));
 
-						System.out.print("1.콜 2.다이 3.족보보기 >> ");
+						System.out.printf("%40s","1.콜 "+"\n"+"2.다이"+"\n"+ "3.족보보기");
 						select = sc.nextInt();
 						if (select == 1) {// 콜
 							sound.playDealing();
 
-							user_1 = frame.makeFlower();
-							com1_1 = frame.makeFakeFlower();
-							com2_1 = frame.makeFakeFlower();
-							
+							if (die.getC1()) {// 컴1이 죽었을때
+								user_1 = frame.makeFlower();
+								frame.makeBlankFlower();
+								com2_1 = frame.makeFakeFlower();
+								
+							} else if (die.getC2()) {// 컴2이 죽었을때
+								user_1 = frame.makeFlower();
+								com1_1 = frame.makeFakeFlower();
+								frame.makeBlankFlower();
+//							} else if (die.getC1() && die.getC2()) {// 컴 둘다 죽었을때
 
-							System.out.print("1.오픈 2.다이 3.하프  >> ");
+							} else {// 아무도 안죽었을때
+								user_1 = frame.makeFlower();
+								com1_1 = frame.makeFakeFlower();
+								com2_1 = frame.makeFakeFlower();
+
+							}
+
+							System.out.print("1.오픈 2.하프  >> ");
 							select = sc.nextInt();
 							if (select == 1) {// 오픈
-								
-								sound.playDealing();
-								frame.openFlower();
-								int user_score = winLose.score(user, user_1);
-								int com1_score = winLose.score(com1, com1_1);
-								int com2_score = winLose.score(com2, com2_1);
-								
-								
-								System.out.println(player.getNickname()+"님의 패 : " + winLose.scoreLevel(user_score));
-								System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
-								System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
-								
-								
-								
-								if (winLose.result(user_score, com1_score, com2_score)==2) {
+
+								if (die.getC1() && die.getC2()==false) {// 컴1이 죽었을때
+									sound.playDealing();
+									frame.openFlower();
+									user_score = winLose.score(user, user_1);
+									com1_score = -1;
+									com2_score = winLose.score(com2, com2_1);
+									System.out
+											.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
+									System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
+
+								} else if (die.getC2() && die.getC1()==false) {// 컴2이 죽었을때
+									sound.playDealing();
+									frame.openFlower();
+									user_score = winLose.score(user, user_1);
+									com2_score = -1;
+									com1_score = winLose.score(com1, com1_1);
+									System.out
+											.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
+									System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
+
+								} else {// 아무도 안죽었을때
+									sound.playDealing();
+									frame.openFlower();
+									user_score = winLose.score(user, user_1);
+									com1_score = winLose.score(com1, com1_1);
+									com2_score = winLose.score(com2, com2_1);
+
+									System.out
+											.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
+									System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
+									System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
+								}
+
+								if (winLose.result(user_score, com1_score, com2_score) == 2) {
 									System.out.println("\r\n"
 											+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "⠀⠀⢰⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⢰⣶⣶⣶⣶⠀⠀⠀⠀⠀⠀⠀⢰⣶⣶⣶⡆⠀⠀⠀⠀⣰⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⡀⠀⠀⠀⢰⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⢰⣶⣶⣶⡆⠀⠀\r\n"
@@ -165,34 +191,46 @@ public class main {
 											+ "⠀⠀⠀⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀⠀⠀⠘⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀⠘⠛⠛⠛⠃⠀⠀\r\n"
 											+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "");
-			
+
 									System.out.println();
 
 									player.setPoint(player.getPoint() + 200);
 									dao.setPoint(player);
 									System.out.println("+200 포인트 획득!");
 									System.out.println(player.getNickname() + "님 현재 포인트 : " + player.getPoint());
-								} else if(winLose.result(user_score, com1_score, com2_score)==0) {
-									System.out.println("⠀⢠⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣆⠀⠀⠀ ⠀⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣀⡀⠀⠀⠀⣀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⢠⣤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⡟⠛⠛⢿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⠿⠏⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⣿⣿⣿⣿⣿⣿⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠉⠁⠀⠀⠈⢹⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣶⣦⣤⣤⣤⣤⡄⠀⠀⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣤⣤⣤⣤⣤⣤⣤⣤⣄⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠘⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⠀⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠉⠹⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡄⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣀⡀⠀⠀⢀⣸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠛⠛⠛⠛⠛⣿⣿⣿⣿⣿⣿⣿⡇⠀ ⣿⣿⣿⣿⣿⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⣧⣤⣤⣤⣤⣤⣤⣤⠀⠀⣿⣿⣿⣿⣿⣿⣿⣧⣤⣤⣼⣿⣿⣿⣿⣿⣿ ⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣶⣿⣿⣿⣿⣿⣿⡇⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⠀⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟ ⠀⢰⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣤⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠘⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠃⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠁⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀");
-									System.out.println("⠈⠹⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠉⠀⠀⠀⠈⠉⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠉⠀⠀⠀⠀⠈⠹⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠇⠀⠀⠀⠀⠀⠀⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠀⠀");
-					
+								} else if (winLose.result(user_score, com1_score, com2_score) == 0) {
+									System.out.println(
+											"⠀⢠⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣆⠀⠀⠀ ⠀⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣀⡀⠀⠀⠀⣀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⢠⣤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⡟⠛⠛⢿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⠿⠏⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⣿⣿⣿⣿⣿⣿⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠉⠁⠀⠀⠈⢹⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣶⣦⣤⣤⣤⣤⡄⠀⠀⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣤⣤⣤⣤⣤⣤⣤⣤⣄⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠘⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⠀⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠉⠹⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡄⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣀⡀⠀⠀⢀⣸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠛⠛⠛⠛⠛⣿⣿⣿⣿⣿⣿⣿⡇⠀ ⣿⣿⣿⣿⣿⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⣧⣤⣤⣤⣤⣤⣤⣤⠀⠀⣿⣿⣿⣿⣿⣿⣿⣧⣤⣤⣼⣿⣿⣿⣿⣿⣿ ⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣶⣿⣿⣿⣿⣿⣿⡇⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⠀⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟ ⠀⢰⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣤⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠘⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠃⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠁⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀");
+									System.out.println(
+											"⠈⠹⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠉⠀⠀⠀⠈⠉⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠉⠀⠀⠀⠀⠈⠹⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠇⠀⠀⠀⠀⠀⠀⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠀⠀");
+
 									System.out.println();
 									player.setPoint(player.getPoint() - 200);
 									dao.setPoint(player);
 									System.out.println("-200포인트 감점");
 									System.out.println(player.getNickname() + "님 현재 포인트 : " + player.getPoint());
 
-								}else {
+								} else {
 									System.out.println("\r\n"
 											+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "⠀⣀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣀⡀⠀⠀⠀⣀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣆⡀⠀⠀⠀⠀⠀⠀⣀⣶⣶⣶⣶⣶⣶⣶⣶⣀⠀⠀⠀⠀⠀⣀⣶⣶⣶⣆⡀⠀⠀⠀⢀⣰⣶⣶⣶⣀⡀⠀⠀⠀⢀⣰⣶⣶⣶⣀⠀⠀\r\n"
@@ -209,38 +247,26 @@ public class main {
 											+ "⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠀⠀⠀⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "");
-							
+
 								}
-								
+
 								frame.rePaintMoney(player);
-								
-								
-							} else if (select == 2) {// 두번째패에서 다이
-								frame.deleteFlower();
-								player.setPoint(player.getPoint() - 100);
-								dao.setPoint(player);
-								System.out.println("포인트 점수가 -100 되었습니다");
-								System.out.println("현재 나의 포인트 점수 : " + player.getPoint());
-								frame.rePaintMoney(player);
-								break;
-							}else if(select == 3) {//하프
-								
+
+							} else if (select == 2) {// 하프
+
 								System.out.println("배팅포인트가 2배로 올라갑니다.");
-								
+
 								sound.playDealing();
 								frame.openFlower();
-								int user_score = winLose.score(user, user_1);
-								int com1_score = winLose.score(com1, com1_1);
-								int com2_score = winLose.score(com2, com2_1);
-								
-								
+								user_score = winLose.score(user, user_1);
+								com1_score = winLose.score(com1, com1_1);
+								com2_score = winLose.score(com2, com2_1);
+
 								System.out.println("나의 패 : " + winLose.scoreLevel(user_score));
 								System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
 								System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
-								
-								
-								
-								if (winLose.result(user_score, com1_score, com2_score)==2) {
+
+								if (winLose.result(user_score, com1_score, com2_score) == 2) {
 									System.out.println("\r\n"
 											+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "⠀⠀⢰⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⢰⣶⣶⣶⣶⠀⠀⠀⠀⠀⠀⠀⢰⣶⣶⣶⡆⠀⠀⠀⠀⣰⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⡀⠀⠀⠀⢰⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⢰⣶⣶⣶⡆⠀⠀\r\n"
@@ -259,34 +285,46 @@ public class main {
 											+ "⠀⠀⠀⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀⠀⠀⠘⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀⠘⠛⠛⠛⠃⠀⠀\r\n"
 											+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "");
-			
+
 									System.out.println();
 
 									player.setPoint(player.getPoint() + 400);
 									dao.setPoint(player);
 									System.out.println("+400 포인트 획득!");
 									System.out.println(player.getNickname() + "님 현재 포인트 : " + player.getPoint());
-								} else if(winLose.result(user_score, com1_score, com2_score)==0) {
-									System.out.println("⠀⢠⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣆⠀⠀⠀ ⠀⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣀⡀⠀⠀⠀⣀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⢠⣤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⡟⠛⠛⢿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⠿⠏⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⣿⣿⣿⣿⣿⣿⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠉⠁⠀⠀⠈⢹⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣶⣦⣤⣤⣤⣤⡄⠀⠀⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣤⣤⣤⣤⣤⣤⣤⣤⣄⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠘⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⠀⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠉⠹⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡄⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣀⡀⠀⠀⢀⣸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠛⠛⠛⠛⠛⣿⣿⣿⣿⣿⣿⣿⡇⠀ ⣿⣿⣿⣿⣿⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⣧⣤⣤⣤⣤⣤⣤⣤⠀⠀⣿⣿⣿⣿⣿⣿⣿⣧⣤⣤⣼⣿⣿⣿⣿⣿⣿ ⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣶⣿⣿⣿⣿⣿⣿⡇⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⠀⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟ ⠀⢰⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣤⠀");
-									System.out.println("⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠘⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠃⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠁⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀");
-									System.out.println("⠈⠹⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠉⠀⠀⠀⠈⠉⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠉⠀⠀⠀⠀⠈⠹⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠇⠀⠀⠀⠀⠀⠀⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠀⠀");
-					
+								} else if (winLose.result(user_score, com1_score, com2_score) == 0) {
+									System.out.println(
+											"⠀⢠⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣆⠀⠀⠀ ⠀⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣀⡀⠀⠀⠀⣀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⢠⣤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⡟⠛⠛⢿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⠿⠏⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⣿⣿⣿⣿⣿⣿⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠉⠁⠀⠀⠈⢹⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣶⣦⣤⣤⣤⣤⡄⠀⠀⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣤⣤⣤⣤⣤⣤⣤⣤⣄⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠘⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⠀⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠉⠹⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡄⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣀⡀⠀⠀⢀⣸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠛⠛⠛⠛⠛⣿⣿⣿⣿⣿⣿⣿⡇⠀ ⣿⣿⣿⣿⣿⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⣧⣤⣤⣤⣤⣤⣤⣤⠀⠀⣿⣿⣿⣿⣿⣿⣿⣧⣤⣤⣼⣿⣿⣿⣿⣿⣿ ⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣶⣿⣿⣿⣿⣿⣿⡇⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⠀⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟ ⠀⢰⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣤⠀");
+									System.out.println(
+											"⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠘⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠃⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠁⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀");
+									System.out.println(
+											"⠈⠹⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠉⠀⠀⠀⠈⠉⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠉⠀⠀⠀⠀⠈⠹⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠇⠀⠀⠀⠀⠀⠀⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠀⠀");
+
 									System.out.println();
 									player.setPoint(player.getPoint() - 400);
 									dao.setPoint(player);
 									System.out.println("-400포인트 감점");
 									System.out.println(player.getNickname() + "님 현재 포인트 : " + player.getPoint());
 
-								}else {
+								} else {
 									System.out.println("\r\n"
 											+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "⠀⣀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣀⡀⠀⠀⠀⣀⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣆⡀⠀⠀⠀⠀⠀⠀⣀⣶⣶⣶⣶⣶⣶⣶⣶⣀⠀⠀⠀⠀⠀⣀⣶⣶⣶⣆⡀⠀⠀⠀⢀⣰⣶⣶⣶⣀⡀⠀⠀⠀⢀⣰⣶⣶⣶⣀⠀⠀\r\n"
@@ -303,13 +341,11 @@ public class main {
 											+ "⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠀⠀⠀⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
 											+ "");
-							
+
 								}
-								
+
 								frame.rePaintMoney(player);
-								
-								
-								
+
 							}
 
 						} else if (select == 2) {// 첫번째패에서 다이
@@ -343,9 +379,9 @@ public class main {
 						frame.deleteFlower();
 						stop = 1;
 						break;
-					} else if(player.getPoint()<=0) {
+					} else if (player.getPoint() <= 0) {
 						System.out.println("포인트가 부족합니다. 충전하세요");
-					}else {
+					} else {
 						System.out.println("번호를 다시 입력해 주세요");
 					}
 
@@ -355,8 +391,5 @@ public class main {
 		}
 
 	}
-	
-	
-	
 
 }
