@@ -48,8 +48,8 @@ public class main {
 					System.out.print("NICK 입력 : ");
 					String joinNick = sc.next();
 
-					if (joinNick.length() > 7 || joinId.length() > 7) {
-						System.out.println("ID와 NICK은 최대 7글자까지 가능합니다.");
+					if (joinNick.length() > 7 || joinId.length() > 7 || joinNick.length()<3 || joinId.length() < 3) {
+						System.out.println("ID와 NICK은 3글자 이상 최대 7글자까지 가능합니다.");
 						continue;
 					}
 
@@ -72,8 +72,9 @@ public class main {
 					int mode = sc.nextInt();
 
 					frame.deleteFlower();
-					if (mode == 1) {// 게임시작
+					if (mode == 1 && player.getPoint()>=0) {// 게임시작
 						sound.playShuffle();
+					
 
 						int user = frame.makeFlower();
 						int com1 = frame.makeFlower();
@@ -82,6 +83,7 @@ public class main {
 						System.out.print("1.콜 2.다이 3.족보보기 >> ");
 						select = sc.nextInt();
 						if (select == 1) {// 콜
+							sound.playDealing();
 
 							int user_1 = frame.makeFlower();
 							int com1_1 = frame.makeFakeFlower();
@@ -90,6 +92,7 @@ public class main {
 							System.out.print("1.오픈 2.다이 >> ");
 							select = sc.nextInt();
 							if (select == 1) {// 오픈
+								sound.playDealing();
 								frame.openFlower();
 								int user_score = winLose.score(user, user_1);
 								int com1_score = winLose.score(com1, com1_1);
@@ -98,7 +101,7 @@ public class main {
 								System.out.println("나의 패 : " + winLose.scoreLevel(user_score));
 								System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
 								System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
-								if (winLose.result(user_score, com1_score, com2_score)) {
+								if (winLose.result(user_score, com1_score, com2_score)==2) {
 									System.out.println("           _        " + "");
 									System.out.println("          (_)       " + "");
 									System.out.println("__      __ _  _ __  " + "");
@@ -107,11 +110,11 @@ public class main {
 									System.out.println("  \\_/\\_/  |_||_| |_|" + "");
 									System.out.println();
 
-									player.setPoint(player.getPoint() + (user_score * 10));
+									player.setPoint(player.getPoint() + 200);
 									dao.setPoint(player);
-									System.out.println("+" + user_score * 10 + "포인트 획득!");
+									System.out.println("+200 포인트 획득!");
 									System.out.println(player.getNickname() + "님 현재 포인트 : " + player.getPoint());
-								} else {
+								} else if(winLose.result(user_score, com1_score, com2_score)==0) {
 									System.out.println(" _                   ");
 									System.out.println("| |                  " + "");
 									System.out.println("| |  ___   ___   ___ " + "");
@@ -119,11 +122,19 @@ public class main {
 									System.out.println("| || (_) |\\__ \\|  __/" + "");
 									System.out.println("|_| \\___/ |___/ \\___|" + "");
 									System.out.println();
-									player.setPoint(player.getPoint() - (user_score * 10));
+									player.setPoint(player.getPoint() - 200);
 									dao.setPoint(player);
-									System.out.println("-" + user_score * 10 + "포인트 감점");
+									System.out.println("-200포인트 감점");
 									System.out.println(player.getNickname() + "님 현재 포인트 : " + player.getPoint());
 
+								}else {
+									System.out.println("     _                        "+ "");
+									System.out.println("    | |                       "+ "");
+									System.out.println("  __| | _ __   __ _ __      __"+ "");
+									System.out.println(" / _` || '__| / _` |\\ \\ /\\ / /"+ "");
+									System.out.println("| (_| || |   | (_| | \\ V  V / "+ "");
+									System.out.println(" \\__,_||_|    \\__,_|  \\_/\\_/  "+ "");
+							
 								}
 							} else if (select == 2) {// 두번째패에서 다이
 								frame.deleteFlower();
@@ -164,7 +175,9 @@ public class main {
 						frame.deleteFlower();
 						stop = 1;
 						break;
-					} else {
+					} else if(player.getPoint()<=0) {
+						System.out.println("포인트가 부족합니다. 충전하세요");
+					}else {
 						System.out.println("번호를 다시 입력해 주세요");
 					}
 
