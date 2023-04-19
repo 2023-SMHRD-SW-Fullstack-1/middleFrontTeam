@@ -30,6 +30,7 @@ public class Frame extends JFrame{
         c.add(new ComputerLabel());
         c.setBackground(new Color(77,70,24));
 		setSize(480, 480);
+		setResizable(false);
 		setVisible(true);
 	}
 	
@@ -81,6 +82,7 @@ public class Frame extends JFrame{
 				cardNum = cc.getRandomCard().getNumber();
 			}else {
 				arr.add(cardNum);
+				System.out.println(cardNum);
 				break;
 			}
 		}
@@ -132,15 +134,16 @@ public class Frame extends JFrame{
 	}
 	
 	public void showPriority() {
-		// 족보 보이기 맨위로 보이게 수정하기
 		String filePath = "src/flowersImg/zokbo.jpg";
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
 		Icon newIcon = new ImageIcon(image);
 		JLabel label = new JLabel(newIcon);
 		label.setPreferredSize(new Dimension(500, 500));
-		JOptionPane.showMessageDialog(null, label);
+		JOptionPane.showMessageDialog(null, label, "족보", JOptionPane.PLAIN_MESSAGE);
 	}
+	
+
 	
 	
 }
