@@ -7,7 +7,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class imgLabel extends JLabel{
+public class imgLabel extends JLabel{ // 화투패 구현
 	public imgLabel(int number) {
 //		String filePath = "src/flowersImg/" + number + ".png";
 		String filePath = "image/" + number + ".png";

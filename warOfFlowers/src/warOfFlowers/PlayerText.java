@@ -14,10 +14,12 @@ public class PlayerText extends JPanel{
 	public static JLabel userScore;
 
 	public PlayerText(PlayerDTO player) {
-		
+		// JPanel 설정
 		setLayout(new GridLayout(2,1));
 		setSize(90,60);
 		setOpaque(false);
+		
+		// userNick 화면 
 		JLabel userNick = new JLabel();
 		userNick.setText(player.getNickname());
 		userNick.setPreferredSize(new Dimension(90,30));
@@ -28,7 +30,7 @@ public class PlayerText extends JPanel{
 		// 중앙 정렬
 		userNick.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		
+		// userScore 화면
 		userScore = new JLabel();
 		userScore.setText("머니: "+player.getPoint());
 		userScore.setPreferredSize(new Dimension(90,30));

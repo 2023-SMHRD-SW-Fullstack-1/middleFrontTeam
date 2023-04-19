@@ -6,7 +6,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class PeopleLabel extends JLabel{
+public class PeopleLabel extends JLabel{ // 사람 아이콘 JLabel
 	public PeopleLabel() {
 //		String filePath = "src/flowersImg/aaaa.png";
 		String filePath = "image/aaaa.png";

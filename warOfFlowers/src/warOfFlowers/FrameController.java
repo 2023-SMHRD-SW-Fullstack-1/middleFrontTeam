@@ -20,7 +20,7 @@ public class FrameController {
 		c = frame.getC();
 	}
 
-	public boolean isDuplicate(int num) {
+	private boolean isDuplicate(int num) {
 		boolean result = false;
 		for(int i=0; i<arr.size(); i++) {
 			if(arr.get(i) == num) {
@@ -46,8 +46,7 @@ public class FrameController {
 				arr.add(cardNum);
 				imgLabel img = new imgLabel(cardNum);
 				c.add(img);
-				c.revalidate();
-			    c.repaint();
+				rePrint();
 				break;
 			}
 		}
@@ -74,8 +73,7 @@ public class FrameController {
 		
 		imgLabel img = new imgLabel(21);
 		c.add(img);
-		c.revalidate();
-	    c.repaint();
+		rePrint();
 		
 		return cardNum;
 		
@@ -88,8 +86,7 @@ public class FrameController {
 		for(int i=4; i<arr.size(); i++) {
 			imgLabel img = new imgLabel(arr.get(i));
 			c.add(img);
-			c.revalidate();
-		    c.repaint();
+			rePrint();
 		}
 		
 	}
@@ -102,8 +99,7 @@ public class FrameController {
 			c.remove(7);
 			c.remove(6);
 			arr.clear();
-			c.revalidate();
-		    c.repaint();
+			rePrint();
 		}else if(componentCount == 12) {
 			c.remove(11);
 			c.remove(10);
@@ -112,8 +108,7 @@ public class FrameController {
 			c.remove(7);
 			c.remove(6);
 			arr.clear();
-			c.revalidate();
-		    c.repaint();
+			rePrint();
 
 		}
 	}
@@ -134,12 +129,15 @@ public class FrameController {
         c.add(new PlayerText(main.player));
         c.add(new ComputerText());
         c.add(new ComputerText());
-        c.revalidate();
-	    c.repaint();
+        rePrint();
 	}
 	
 	public void rePaintMoney(PlayerDTO player) {
 		PlayerText.userScore.setText("머니: "+player.getPoint());
+		rePrint();
+	}
+	
+	public void rePrint() {
 		c.validate();
 		c.repaint();
 	}
