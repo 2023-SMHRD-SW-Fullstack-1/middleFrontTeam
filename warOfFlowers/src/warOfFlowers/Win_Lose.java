@@ -54,7 +54,7 @@ public class Win_Lose {
           num=13000;
           return num;
        }else if ((num1==num2)
-    		   ||((num1==33 && num2==3)||(num1==33 && num2==3))
+    		   ||((num1==33 && num2==3)||(num1==3 && num2==33))
     		   ||((num1==11 && num2==1)||(num1==1 && num2==11))
     		   ||((num1==88 && num2==8)||(num1==8 && num2==88))) {//땡 1-10땡
     	   
@@ -191,6 +191,7 @@ public class Win_Lose {
     
     // 점수 비교후 이겼으면 true 졌으면 false
     public int result (int user, int computer1, int computer2) {
+    	
        int max=0;
        if(user==0 && ((computer1==9000||computer2==9000)
     		   		||(computer1==8000||computer2==8000)
