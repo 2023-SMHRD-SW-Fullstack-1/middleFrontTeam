@@ -9,7 +9,8 @@ import javax.swing.JLabel;
 
 public class imgLabel extends JLabel{
 	public imgLabel(int number) {
-		String filePath = "src/flowersImg/" + number + ".png";
+//		String filePath = "src/flowersImg/" + number + ".png";
+		String filePath = "image/" + number + ".png";
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 		Icon newIcon = new ImageIcon(image);

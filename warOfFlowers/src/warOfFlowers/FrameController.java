@@ -118,7 +118,8 @@ public class FrameController {
 	}
 	
 	public void showPriority() {
-		String filePath = "src/flowersImg/zokbo.jpg";
+//		String filePath = "src/flowersImg/zokbo.jpg";
+		String filePath = "image/flowersImg/zokbo.jpg";
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
 		Icon newIcon = new ImageIcon(image);
