@@ -136,4 +136,10 @@ public class FrameController {
 	    c.repaint();
 	}
 	
+	public void rePaintMoney(PlayerDTO player) {
+		PlayerText.userScore.setText("머니: "+player.getPoint());
+		c.validate();
+		c.repaint();
+	}
+	
 }

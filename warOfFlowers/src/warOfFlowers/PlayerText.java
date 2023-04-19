@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class PlayerText extends JPanel{
+	
+	public static JLabel userScore;
 
 	public PlayerText(PlayerDTO player) {
 		
@@ -27,8 +29,8 @@ public class PlayerText extends JPanel{
 		userNick.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		
-		JLabel userScore = new JLabel();
-		userScore.setText("점수: "+player.getPoint());
+		userScore = new JLabel();
+		userScore.setText("머니: "+player.getPoint());
 		userScore.setPreferredSize(new Dimension(90,30));
 		userScore.setFont(bFont);
 		userScore.setForeground(Color.WHITE);
