@@ -143,5 +143,12 @@ public class FrameController {
 		c.validate();
 		c.repaint();
 	}
+//	
+//	public void showWhatPlayerFlower() {
+//		WhatFlowerLabel fl = new WhatFlowerLabel();
+//		c.add(fl);
+//		c.validate();
+//		c.repaint();
+//	}
 	
 }

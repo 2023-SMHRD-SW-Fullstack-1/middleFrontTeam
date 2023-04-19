@@ -100,6 +100,7 @@ public class main {
 							user_1 = frame.makeFlower();
 							com1_1 = frame.makeFakeFlower();
 							com2_1 = frame.makeFakeFlower();
+							
 
 							System.out.print("1.오픈 2.다이 3.하프  >> ");
 							select = sc.nextInt();
