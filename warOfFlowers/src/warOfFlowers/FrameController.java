@@ -84,6 +84,7 @@ public class FrameController {
 		System.out.println(c.getComponentCount());
 		imgLabel img = new imgLabel(99);
 		c.add(img);
+		arr.add(99);
 		System.out.println(c.getComponentCount());
 		rePrint();
 	}
@@ -101,32 +102,40 @@ public class FrameController {
 	
 	public void openFlower(int num) {
 		if( num == 1) { // com1 die
-//			Component temp = c.getComponent(11);
-			int temp = c.
-			System.out.println(temp);
+			arr.forEach(item ->{
+				System.out.println(item + " ");
+			});
+			Component temp = c.getComponent(11);
+			imgLabel retrievedButton = (imgLabel) temp;
+			System.out.println("1 : " + c.getComponentCount());
 			c.remove(11);
 			c.remove(10);
 			System.out.println("1 : " + c.getComponentCount());
 			c.add(new imgLabel(99));
-			c.add(temp);
-			System.out.println(c.getComponentCount());
+			c.add(new imgLabel(arr.get(5)));
+			System.out.println("1 + " + c.getComponentCount());
+			rePrint();
 		}else if(num == 2) { // com2 die
+			arr.forEach(item ->{
+				System.out.println(item + " ");
+			});
 			Component temp = c.getComponent(10);
-			System.out.println(temp);
-
+			imgLabel retrievedButton = (imgLabel) temp;
+			System.out.println("2 : " + c.getComponentCount());
 			c.remove(11);
 			c.remove(10);
 			System.out.println("2 : " + c.getComponentCount());
-			c.add(temp);
+			c.add(new imgLabel(arr.get(4)));
 			c.add(new imgLabel(99));
-			System.out.println(c.getComponentCount());
+			System.out.println("2 : " + c.getComponentCount());
+			rePrint();
+			System.out.println("2 : " + c.getComponentCount());
 		}else { // num == 3 , com1, com2 둘다 die
-			Component temp = c.getComponent(11);
-			System.out.println(temp);
-			System.out.println(c.getComponentCount());
-			c.add(new imgLabel(99));
-			c.add(new imgLabel(99));
-			System.out.println(c.getComponentCount());
+			c.remove(11);
+			c.remove(10);
+			c.add(new imgLabel(arr.get(4)));
+			c.add(new imgLabel(arr.get(5)));
+			rePrint();
 		}
 		
 		

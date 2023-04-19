@@ -118,20 +118,21 @@ public class main {
 						System.out.println("\n");
 						if (select == 1) {// 콜
 							sound.playDealing();
-
-							if (die.getC1()) {// 컴1이 죽었을때
+							
+							if (die.getC1() && die.getC2()) {// 둘다 죽었을때
 								user_1 = frame.makeFlower();
 								frame.makeBlankFlower();
-								com2_1 = frame.makeFakeFlower();
+								frame.makeBlankFlower();
 								
 							} else if (die.getC2()) {// 컴2이 죽었을때
 								user_1 = frame.makeFlower();
 								com1_1 = frame.makeFakeFlower();
 								frame.makeBlankFlower();
-							} else if (die.getC1() && die.getC2()) {// 컴 둘다 죽었을때
+							} else if (die.getC1()) {// 컴1 죽었을때
 								user_1 = frame.makeFlower();
 								frame.makeBlankFlower();
-								frame.makeBlankFlower();
+								com2_1 = frame.makeFakeFlower();
+								
 							} 
 							
 							else {// 아무도 안죽었을때
