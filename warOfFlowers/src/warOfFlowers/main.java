@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
-	public static PlayerDTO player = null;
+		public static PlayerDTO player = null;
+	 
 
 	public static void main(String[] args) {
 
@@ -13,7 +14,8 @@ public class main {
 		FrameController frame = new FrameController();
 		Win_Lose winLose = new Win_Lose();
 		SoundController sound = new SoundController();
-
+		
+		
 		int select;
 		boolean check = false;
 		int stop = 0;
@@ -89,7 +91,7 @@ public class main {
 							int com1_1 = frame.makeFakeFlower();
 							int com2_1 = frame.makeFakeFlower();
 
-							System.out.print("1.오픈 2.다이 >> ");
+							System.out.print("1.오픈 2.다이 3.하프  >> ");
 							select = sc.nextInt();
 							if (select == 1) {// 오픈
 								sound.playDealing();
@@ -143,6 +145,8 @@ public class main {
 								System.out.println("포인트 점수가 -100 되었습니다");
 								System.out.println("현재 나의 포인트 점수 : " + player.getPoint());
 								break;
+							}else if(select == 3) {//하프
+								System.out.println("배팅포인트가 2배로 올라갑니다.");
 							}
 
 						} else if (select == 2) {// 첫번째패에서 다이
