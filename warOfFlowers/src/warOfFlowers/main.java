@@ -128,9 +128,13 @@ public class main {
 								user_1 = frame.makeFlower();
 								com1_1 = frame.makeFakeFlower();
 								frame.makeBlankFlower();
-//							} else if (die.getC1() && die.getC2()) {// 컴 둘다 죽었을때
-
-							} else {// 아무도 안죽었을때
+							} else if (die.getC1() && die.getC2()) {// 컴 둘다 죽었을때
+								user_1 = frame.makeFlower();
+								frame.makeBlankFlower();
+								frame.makeBlankFlower();
+							} 
+							
+							else {// 아무도 안죽었을때
 								user_1 = frame.makeFlower();
 								com1_1 = frame.makeFakeFlower();
 								com2_1 = frame.makeFakeFlower();
@@ -143,6 +147,7 @@ public class main {
 							if (select == 1) {// 오픈
 
 								if (die.getC1() && die.getC2()==false) {// 컴1이 죽었을때
+									System.out.println("컴1 다이");
 									sound.playDealing();
 									frame.openFlower(1);
 									user_score = winLose.score(user, user_1);
@@ -153,6 +158,7 @@ public class main {
 									System.out.printf("%55s","컴퓨터2의 패 : " + winLose.scoreLevel(com2_score)+"\n");
 
 								} else if (die.getC2() && die.getC1()==false) {// 컴2이 죽었을때
+									System.out.println("컴2 다이");
 									sound.playDealing();
 									frame.openFlower(2);
 									user_score = winLose.score(user, user_1);
@@ -161,7 +167,19 @@ public class main {
 									System.out.printf("%55s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
 									System.out.printf("%55s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
 
-								} else {// 아무도 안죽었을때
+								} else if(die.getC2() && die.getC1()) {
+									System.out.println("둘다 다이");
+									sound.playDealing();
+									frame.openFlower(3);
+									user_score = winLose.score(user, user_1);
+									com2_score = -1;
+									com1_score = -1;
+									System.out.printf("%55s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
+									System.out.printf("%55s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
+								}
+								
+								
+								else {// 아무도 안죽었을때
 									sound.playDealing();
 									frame.openFlower();
 									user_score = winLose.score(user, user_1);

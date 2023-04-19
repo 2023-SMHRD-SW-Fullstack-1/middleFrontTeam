@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class imgLabel extends JLabel{ // 화투패 구현
+	private int number;
+	
 	public imgLabel(int number) {
 //		String filePath = "src/flowersImg/" + number + ".png";
 		String filePath = "image/" + number + ".png";
@@ -18,5 +20,16 @@ public class imgLabel extends JLabel{ // 화투패 구현
 		// 그림자 조절
 		setSize(140,140);
 		setIcon(newIcon);
+		this.number = number;
 	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	
+	
 }

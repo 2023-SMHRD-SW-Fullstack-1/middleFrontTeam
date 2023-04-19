@@ -101,21 +101,32 @@ public class FrameController {
 	
 	public void openFlower(int num) {
 		if( num == 1) { // com1 die
-			Component temp = c.getComponent(11);
+//			Component temp = c.getComponent(11);
+			int temp = c.
+			System.out.println(temp);
 			c.remove(11);
 			c.remove(10);
+			System.out.println("1 : " + c.getComponentCount());
 			c.add(new imgLabel(99));
 			c.add(temp);
+			System.out.println(c.getComponentCount());
 		}else if(num == 2) { // com2 die
 			Component temp = c.getComponent(10);
+			System.out.println(temp);
+
 			c.remove(11);
 			c.remove(10);
+			System.out.println("2 : " + c.getComponentCount());
 			c.add(temp);
 			c.add(new imgLabel(99));
+			System.out.println(c.getComponentCount());
 		}else { // num == 3 , com1, com2 둘다 die
-			Component a = c.getComponent(11);
+			Component temp = c.getComponent(11);
+			System.out.println(temp);
+			System.out.println(c.getComponentCount());
 			c.add(new imgLabel(99));
 			c.add(new imgLabel(99));
+			System.out.println(c.getComponentCount());
 		}
 		
 		
