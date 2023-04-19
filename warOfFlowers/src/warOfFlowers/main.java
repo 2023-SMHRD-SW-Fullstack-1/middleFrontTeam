@@ -149,8 +149,8 @@ public class main {
 									com1_score = -1;
 									com2_score = winLose.score(com2, com2_1);
 									System.out.printf("%70s","-------------------------------------------------\n");
-									System.out.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
-									System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
+									System.out.printf("%55s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
+									System.out.printf("%55s","컴퓨터2의 패 : " + winLose.scoreLevel(com2_score)+"\n");
 
 								} else if (die.getC2() && die.getC1()==false) {// 컴2이 죽었을때
 									sound.playDealing();
@@ -158,8 +158,8 @@ public class main {
 									user_score = winLose.score(user, user_1);
 									com2_score = -1;
 									com1_score = winLose.score(com1, com1_1);
-									System.out.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
-									System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
+									System.out.printf("%55s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
+									System.out.printf("%55s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
 
 								} else {// 아무도 안죽었을때
 									sound.playDealing();
@@ -168,10 +168,9 @@ public class main {
 									com1_score = winLose.score(com1, com1_1);
 									com2_score = winLose.score(com2, com2_1);
 
-									System.out
-											.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
-									System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
-									System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
+									System.out.printf("%55s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
+									System.out.printf("%55s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
+									System.out.printf("%55s","컴퓨터2의 패 : " + winLose.scoreLevel(com2_score)+"\n");
 								}
 
 								if (winLose.result(user_score, com1_score, com2_score) == 2) {
