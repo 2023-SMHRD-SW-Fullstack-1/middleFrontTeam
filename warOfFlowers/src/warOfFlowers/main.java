@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
+	public static PlayerDTO player = null;
 
 	public static void main(String[] args) {
 
@@ -13,7 +14,7 @@ public class main {
 		Frame frame = new Frame();
 		Win_Lose winLose = new Win_Lose();
 
-		PlayerDTO player = null;
+		
 		int select;
 		boolean check = false;
 		int stop = 0;
@@ -31,7 +32,7 @@ public class main {
 
 					player = dao.login(id, pw);
 					if (player != null) {
-						System.out.println(player.getNickname() + "님이 로그인 되었습니다");
+						System.out.println(player.getNickname() + "님이 로그인 되었습니다. 현재 포인트 : "+player.getPoint());
 						check = true;
 						continue;
 					} else {
@@ -45,6 +46,11 @@ public class main {
 					String joinPw = sc.next();
 					System.out.print("NICK 입력 : ");
 					String joinNick = sc.next();
+					
+					if(joinNick.length()>7 || joinId.length()>7) {
+						System.out.println("ID와 NICK은 최대 7글자까지 가능합니다.");
+						continue;
+					}
 
 					Boolean join = dao.signup(joinId, joinPw, joinNick);
 					if (join == true) {
@@ -81,38 +87,55 @@ public class main {
 
 							System.out.print("1.오픈 2.다이 >> ");
 							select = sc.nextInt();
-							if (select == 1) {
+							if (select == 1) {//오픈
 								frame.openFlower();
-							}
-							int user_score = winLose.score(user, user_1);
-							int com1_score = winLose.score(com1, com1_1);
-							int com2_score = winLose.score(com2, com2_1);
+								int user_score = winLose.score(user, user_1);
+								int com1_score = winLose.score(com1, com1_1);
+								int com2_score = winLose.score(com2, com2_1);
 
-							System.out.println("나의 패 : " + winLose.scoreLevel(user_score));
-							System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
-							System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
-							if (winLose.result(user_score, com1_score, com2_score)) {
-								System.out.println("           _        " + "");
-								System.out.println("          (_)       " + "");
-								System.out.println("__      __ _  _ __  " + "");
-								System.out.println("\\ \\ /\\ / /| || '_ \\ " + "");
-								System.out.println(" \\ V  V / | || | | |" + "");
-								System.out.println("  \\_/\\_/  |_||_| |_|" + "");
+								System.out.println("나의 패 : " + winLose.scoreLevel(user_score));
+								System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
+								System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
+								if (winLose.result(user_score, com1_score, com2_score)) {
+									System.out.println("           _        " + "");
+									System.out.println("          (_)       " + "");
+									System.out.println("__      __ _  _ __  " + "");
+									System.out.println("\\ \\ /\\ / /| || '_ \\ " + "");
+									System.out.println(" \\ V  V / | || | | |" + "");
+									System.out.println("  \\_/\\_/  |_||_| |_|" + "");
 
-								player.setPoint(player.getPoint() + user_score);
+									player.setPoint(player.getPoint() + user_score);
+									dao.setPoint(player);
+									System.out.println(player.getNickname() + "님 현재 포인트 : "+player.getPoint());
+								} else {
+									System.out.println(" _                   ");
+									System.out.println("| |                  " + "");
+									System.out.println("| |  ___   ___   ___ " + "");
+									System.out.println("| | / _ \\ / __| / _ \\" + "");
+									System.out.println("| || (_) |\\__ \\|  __/" + "");
+									System.out.println("|_| \\___/ |___/ \\___|" + "");
+									player.setPoint(player.getPoint() - user_score);
+									dao.setPoint(player);
+									System.out.println(player.getNickname() + "님 현재 포인트 : "+player.getPoint());
+								
+
+								}
+							}else if(select==2) {//두번째패에서 다이
+								frame.deleteFlower();
+								player.setPoint(player.getPoint() - 100);
 								dao.setPoint(player);
-							} else {
-								System.out.println(" _                   ");
-								System.out.println("| |                  " + "");
-								System.out.println("| |  ___   ___   ___ " + "");
-								System.out.println("| | / _ \\ / __| / _ \\" + "");
-								System.out.println("| || (_) |\\__ \\|  __/" + "");
-								System.out.println("|_| \\___/ |___/ \\___|" + "");
-
+								System.out.println("포인트 점수가 -100 되었습니다");
+								System.out.println("현재 나의 포인트 점수 : "+player.getPoint());
+								break;
 							}
+							
 
-						} else if (select == 2) {// 다이
+						} else if (select == 2) {//첫번째패에서 다이
 							frame.deleteFlower();
+							player.setPoint(player.getPoint() - 50);
+							dao.setPoint(player);
+							System.out.println("포인트 점수가 -50 되었습니다");
+							System.out.println("현재 나의 포인트 점수 : "+player.getPoint());
 
 						} else if (select == 3) {// 족보보기
 							frame.showPriority();
