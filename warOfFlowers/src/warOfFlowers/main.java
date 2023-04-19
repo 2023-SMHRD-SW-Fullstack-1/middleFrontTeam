@@ -34,17 +34,27 @@ public class main {
 
 		
 			if (check == false) {
-				System.out.print("[1]로그인 [2]회원가입 >> ");
+				
+				System.out.println("◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇\n"
+						 + "◇               _______. __    __  .___________.         _______       ___                 ◇\n"
+						 + "◇              /       ||  |  |  | |           |        |       \\     /   \\                ◇\n"
+						 + "◇             |   (----`|  |  |  | `---|  |----` ______ |  .--.  |   /  ^  \\               ◇\n"
+						 + "◇              \\   \\    |  |  |  |     |  |     |______||  |  |  |  /  /_\\  \\              ◇\n"
+						 + "◇          .----)   |   |  `--'  |     |  |             |  '--'  | /  _____  \\             ◇\n"
+						 + "◇          |_______/     \\______/      |__|             |_______/ /__/     \\__\\            ◇\n"
+						 + "◇                                                                                          ◇\n"
+						 + "◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇\n ");
+				System.out.printf("%50s","[1]로그인    [2]회원가입 ");
 				select = sc.nextInt();
 				if (select == 1) { // 로그인
-					System.out.print("ID 입력 : ");
+					System.out.printf("%40s","ID 입력 : ");
 					String id = sc.next();
-					System.out.print("PW 입력 : ");
+					System.out.printf("%40s","PW 입력 : ");
 					String pw = sc.next();
 
 					player = dao.login(id, pw);
 					if (player != null) {
-						System.out.println(player.getNickname() + "님이 로그인 되었습니다. 현재 포인트 : " + player.getPoint());
+						System.out.printf("%50s",player.getNickname() + "님이 로그인 되었습니다. 현재 포인트 : " + player.getPoint()+"\n");
 						check = true;
 						frame.makePlayer();
 						continue;
@@ -80,7 +90,7 @@ public class main {
 			if (check == true) {
 				while (true) {
 
-					System.out.print("[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
+					System.out.printf("%50s","[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
 					int mode = sc.nextInt();
 
 					frame.deleteFlower();
@@ -113,7 +123,7 @@ public class main {
 								int com2_score = winLose.score(com2, com2_1);
 								
 								
-								System.out.println("나의 패 : " + winLose.scoreLevel(user_score));
+								System.out.println(player.getNickname()+"님의 패 : " + winLose.scoreLevel(user_score));
 								System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
 								System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
 								
