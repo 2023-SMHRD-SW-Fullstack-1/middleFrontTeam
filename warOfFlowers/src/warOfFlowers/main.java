@@ -14,6 +14,7 @@ public class main {
 		FrameController frame = new FrameController();
 		Win_Lose winLose = new Win_Lose();
 		SoundController sound = new SoundController();
+		DieAlgorithm die = new DieAlgorithm();
 	 
 		
 		
@@ -115,6 +116,8 @@ public class main {
 						user = frame.makeFlower();
 						com1 = frame.makeFlower();
 						com2 = frame.makeFlower();
+						die.setC1(die.die(com1, user, com2));
+						die.setC2(die.die(com2, user, com1));
 
 						System.out.print("1.콜 2.다이 3.족보보기 >> ");
 						select = sc.nextInt();
