@@ -1,5 +1,6 @@
 package warOfFlowers;
 
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -80,9 +81,10 @@ public class FrameController {
 	}
 	
 	public void makeBlankFlower() {
-		CardController cc = new CardController();
-		BlankLabel blank = new BlankLabel();
-		c.add(blank);
+		System.out.println(c.getComponentCount());
+		imgLabel img = new imgLabel(99);
+		c.add(img);
+		System.out.println(c.getComponentCount());
 		rePrint();
 	}
 	
@@ -94,6 +96,28 @@ public class FrameController {
 			c.add(img);
 			rePrint();
 		}
+		
+	}
+	
+	public void openFlower(int num) {
+		if( num == 1) { // com1 die
+			Component temp = c.getComponent(11);
+			c.remove(11);
+			c.remove(10);
+			c.add(new imgLabel(99));
+			c.add(temp);
+		}else if(num == 2) { // com2 die
+			Component temp = c.getComponent(10);
+			c.remove(11);
+			c.remove(10);
+			c.add(temp);
+			c.add(new imgLabel(99));
+		}else { // num == 3 , com1, com2 둘다 die
+			Component a = c.getComponent(11);
+			c.add(new imgLabel(99));
+			c.add(new imgLabel(99));
+		}
+		
 		
 	}
 	
