@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class main {
 		public static PlayerDTO player = null;
-	 
+		
 
 	public static void main(String[] args) {
 
@@ -14,11 +14,18 @@ public class main {
 		FrameController frame = new FrameController();
 		Win_Lose winLose = new Win_Lose();
 		SoundController sound = new SoundController();
+	 
 		
 		
 		int select;
 		boolean check = false;
 		int stop = 0;
+		int user = 0;
+		int user_1=0;
+		int com1=0;
+		int com1_1=0;
+		int com2=0;
+		int com2_1=0;
 
 		while (stop == 0) {
 
@@ -78,31 +85,36 @@ public class main {
 						sound.playShuffle();
 					
 
-						int user = frame.makeFlower();
-						int com1 = frame.makeFlower();
-						int com2 = frame.makeFlower();
+						user = frame.makeFlower();
+						com1 = frame.makeFlower();
+						com2 = frame.makeFlower();
 
 						System.out.print("1.콜 2.다이 3.족보보기 >> ");
 						select = sc.nextInt();
 						if (select == 1) {// 콜
 							sound.playDealing();
 
-							int user_1 = frame.makeFlower();
-							int com1_1 = frame.makeFakeFlower();
-							int com2_1 = frame.makeFakeFlower();
+							user_1 = frame.makeFlower();
+							com1_1 = frame.makeFakeFlower();
+							com2_1 = frame.makeFakeFlower();
 
 							System.out.print("1.오픈 2.다이 3.하프  >> ");
 							select = sc.nextInt();
 							if (select == 1) {// 오픈
+								
 								sound.playDealing();
 								frame.openFlower();
 								int user_score = winLose.score(user, user_1);
 								int com1_score = winLose.score(com1, com1_1);
 								int com2_score = winLose.score(com2, com2_1);
-
+								
+								
 								System.out.println("나의 패 : " + winLose.scoreLevel(user_score));
 								System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
 								System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
+								
+								
+								
 								if (winLose.result(user_score, com1_score, com2_score)==2) {
 									System.out.println("           _        " + "");
 									System.out.println("          (_)       " + "");
@@ -138,6 +150,10 @@ public class main {
 									System.out.println(" \\__,_||_|    \\__,_|  \\_/\\_/  "+ "");
 							
 								}
+								
+								frame.rePaintMoney(player);
+								
+								
 							} else if (select == 2) {// 두번째패에서 다이
 								frame.deleteFlower();
 								player.setPoint(player.getPoint() - 100);
@@ -147,6 +163,15 @@ public class main {
 								break;
 							}else if(select == 3) {//하프
 								System.out.println("배팅포인트가 2배로 올라갑니다.");
+								System.out.print("1.오픈 2.다이 >> ");
+								select = sc.nextInt();
+								if(select==1) {
+									
+								}else if(select ==2) {
+									
+								}
+								
+								
 							}
 
 						} else if (select == 2) {// 첫번째패에서 다이
@@ -191,5 +216,8 @@ public class main {
 		}
 
 	}
+	
+	
+	
 
 }
