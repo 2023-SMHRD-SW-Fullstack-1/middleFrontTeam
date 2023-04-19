@@ -143,7 +143,7 @@ public class main {
 
 							System.out.printf("%50s","[1]오픈 [2]하프 ");
 							select = sc.nextInt();
-							System.out.println("\n");
+							System.out.printf("%70s","-------------------------------------------------\n");
 							if (select == 1) {// 오픈
 
 								if (die.getC1() && die.getC2()==false) {// 컴1이 죽었을때
@@ -153,9 +153,9 @@ public class main {
 									user_score = winLose.score(user, user_1);
 									com1_score = -1;
 									com2_score = winLose.score(com2, com2_1);
-									System.out.printf("%70s","-------------------------------------------------\n");
-									System.out.printf("%55s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
-									System.out.printf("%55s","컴퓨터2의 패 : " + winLose.scoreLevel(com2_score)+"\n");
+			
+									System.out.printf("%50s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
+									System.out.printf("%50s","컴퓨터2의 패 : " + winLose.scoreLevel(com2_score)+"\n");
 
 								} else if (die.getC2() && die.getC1()==false) {// 컴2이 죽었을때
 									System.out.println("컴2 다이");
@@ -164,8 +164,8 @@ public class main {
 									user_score = winLose.score(user, user_1);
 									com2_score = -1;
 									com1_score = winLose.score(com1, com1_1);
-									System.out.printf("%55s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
-									System.out.printf("%55s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
+									System.out.printf("%50s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
+									System.out.printf("%50s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
 
 								} else if(die.getC2() && die.getC1()) {
 									System.out.println("둘다 다이");
@@ -174,8 +174,8 @@ public class main {
 									user_score = winLose.score(user, user_1);
 									com2_score = -1;
 									com1_score = -1;
-									System.out.printf("%55s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
-									System.out.printf("%55s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
+									System.out.printf("%50s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
+									System.out.printf("%50s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
 								}
 								
 								
@@ -186,9 +186,9 @@ public class main {
 									com1_score = winLose.score(com1, com1_1);
 									com2_score = winLose.score(com2, com2_1);
 
-									System.out.printf("%55s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
-									System.out.printf("%55s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
-									System.out.printf("%55s","컴퓨터2의 패 : " + winLose.scoreLevel(com2_score)+"\n");
+									System.out.printf("%50s",player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score)+"\n");
+									System.out.printf("%50s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
+									System.out.printf("%50s","컴퓨터2의 패 : " + winLose.scoreLevel(com2_score)+"\n");
 								}
 
 								if (winLose.result(user_score, com1_score, com2_score) == 2) {
