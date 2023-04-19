@@ -14,12 +14,11 @@ public class main {
 		Frame frame = new Frame();
 		Win_Lose winLose = new Win_Lose();
 
-		
 		int select;
 		boolean check = false;
 		int stop = 0;
 
-		while (stop==0) {
+		while (stop == 0) {
 
 			if (check == false) {
 				System.out.print("[1]로그인 [2]회원가입 >> ");
@@ -32,8 +31,9 @@ public class main {
 
 					player = dao.login(id, pw);
 					if (player != null) {
-						System.out.println(player.getNickname() + "님이 로그인 되었습니다. 현재 포인트 : "+player.getPoint());
+						System.out.println(player.getNickname() + "님이 로그인 되었습니다. 현재 포인트 : " + player.getPoint());
 						check = true;
+						frame.makePlayer();
 						continue;
 					} else {
 						System.out.println("로그인 실패! 다시 입력 해주세요");
@@ -46,8 +46,8 @@ public class main {
 					String joinPw = sc.next();
 					System.out.print("NICK 입력 : ");
 					String joinNick = sc.next();
-					
-					if(joinNick.length()>7 || joinId.length()>7) {
+
+					if (joinNick.length() > 7 || joinId.length() > 7) {
 						System.out.println("ID와 NICK은 최대 7글자까지 가능합니다.");
 						continue;
 					}
@@ -66,8 +66,7 @@ public class main {
 
 			if (check == true) {
 				while (true) {
-					
-					frame.makePlayer();
+
 					System.out.print("[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
 					int mode = sc.nextInt();
 
@@ -88,7 +87,7 @@ public class main {
 
 							System.out.print("1.오픈 2.다이 >> ");
 							select = sc.nextInt();
-							if (select == 1) {//오픈
+							if (select == 1) {// 오픈
 								frame.openFlower();
 								int user_score = winLose.score(user, user_1);
 								int com1_score = winLose.score(com1, com1_1);
@@ -104,11 +103,12 @@ public class main {
 									System.out.println("\\ \\ /\\ / /| || '_ \\ " + "");
 									System.out.println(" \\ V  V / | || | | |" + "");
 									System.out.println("  \\_/\\_/  |_||_| |_|" + "");
+									System.out.println();
 
-									player.setPoint(player.getPoint() + (user_score*10));
+									player.setPoint(player.getPoint() + (user_score * 10));
 									dao.setPoint(player);
-									System.out.println("+"+user_score*10 +"포인트 획득!");
-									System.out.println(player.getNickname() + "님 현재 포인트 : "+player.getPoint());
+									System.out.println("+" + user_score * 10 + "포인트 획득!");
+									System.out.println(player.getNickname() + "님 현재 포인트 : " + player.getPoint());
 								} else {
 									System.out.println(" _                   ");
 									System.out.println("| |                  " + "");
@@ -116,29 +116,28 @@ public class main {
 									System.out.println("| | / _ \\ / __| / _ \\" + "");
 									System.out.println("| || (_) |\\__ \\|  __/" + "");
 									System.out.println("|_| \\___/ |___/ \\___|" + "");
-									player.setPoint(player.getPoint() - (user_score*10));
+									System.out.println();
+									player.setPoint(player.getPoint() - (user_score * 10));
 									dao.setPoint(player);
-									System.out.println("-"+user_score*10 +"포인트 감점");
-									System.out.println(player.getNickname() + "님 현재 포인트 : "+player.getPoint());
-								
+									System.out.println("-" + user_score * 10 + "포인트 감점");
+									System.out.println(player.getNickname() + "님 현재 포인트 : " + player.getPoint());
 
 								}
-							}else if(select==2) {//두번째패에서 다이
+							} else if (select == 2) {// 두번째패에서 다이
 								frame.deleteFlower();
 								player.setPoint(player.getPoint() - 100);
 								dao.setPoint(player);
 								System.out.println("포인트 점수가 -100 되었습니다");
-								System.out.println("현재 나의 포인트 점수 : "+player.getPoint());
+								System.out.println("현재 나의 포인트 점수 : " + player.getPoint());
 								break;
 							}
-							
 
-						} else if (select == 2) {//첫번째패에서 다이
+						} else if (select == 2) {// 첫번째패에서 다이
 							frame.deleteFlower();
 							player.setPoint(player.getPoint() - 50);
 							dao.setPoint(player);
 							System.out.println("포인트 점수가 -50 되었습니다");
-							System.out.println("현재 나의 포인트 점수 : "+player.getPoint());
+							System.out.println("현재 나의 포인트 점수 : " + player.getPoint());
 
 						} else if (select == 3) {// 족보보기
 							frame.showPriority();
