@@ -10,8 +10,7 @@ public class main {
 
 		Scanner sc = new Scanner(System.in);
 		PlayerDAO dao = new PlayerDAO();
-		CardController cardController = new CardController();
-		Frame frame = new Frame();
+		FrameController frame = new FrameController();
 		Win_Lose winLose = new Win_Lose();
 		SoundController sound = new SoundController();
 
@@ -21,6 +20,7 @@ public class main {
 
 		while (stop == 0) {
 
+		
 			if (check == false) {
 				System.out.print("[1]로그인 [2]회원가입 >> ");
 				select = sc.nextInt();
