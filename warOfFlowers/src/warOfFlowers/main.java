@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
+		public static PlayerDTO player = null;
 	 
 
 	public static void main(String[] args) {
@@ -14,7 +15,7 @@ public class main {
 		Win_Lose winLose = new Win_Lose();
 		SoundController sound = new SoundController();
 		
-		PlayerDTO player = null;
+		
 		int select;
 		boolean check = false;
 		int stop = 0;
