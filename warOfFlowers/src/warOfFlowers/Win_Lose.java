@@ -57,16 +57,16 @@ public class Win_Lose {
        }else if (num1==num2) {//땡
           num = num1*1000;
           return num;
-       }else if (num1==1 && num2==2||num1==11 && num2==2) {//알리 1월2월
+       }else if (num1==11 && num2==2||num1==11 && num2==2) {//알리 1월2월
           num=900;
           return num;
-       }else if (num1==1 && num2==4||num1==11 && num2==4) {//독사 1월4월
+       }else if (num1==11 && num2==4||num1==11 && num2==4) {//독사 1월4월
           num=800;
           return num;
-       }else if (num1==1 && num2==9||num1==11 && num2==9) {//구삥 1월9월
+       }else if (num1==11 && num2==9||num1==11 && num2==9) {//구삥 1월9월
           num=700;
           return num;
-       }else if (num1==1 && num2==10||num1==11 && num2==10) {//장삥 1월10월
+       }else if (num1==11 && num2==10||num1==11 && num2==10) {//장삥 1월10월
           num=600;
           return num;
        }else if (num1==4 && num2==10) {//장사 4월10일
