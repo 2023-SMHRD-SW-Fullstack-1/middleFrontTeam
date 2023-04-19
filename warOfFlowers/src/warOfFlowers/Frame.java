@@ -98,8 +98,8 @@ public class Frame extends JFrame{
 	}
 	
 	public void openFlower() {
+		c.remove(11);
 		c.remove(10);
-		c.remove(9);
 		for(int i=4; i<arr.size(); i++) {
 			imgLabel img = new imgLabel(arr.get(i));
 			c.add(img);
