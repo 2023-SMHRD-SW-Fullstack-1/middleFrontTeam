@@ -82,6 +82,7 @@ public class Frame extends JFrame{
 				cardNum = cc.getRandomCard().getNumber();
 			}else {
 				arr.add(cardNum);
+				System.out.println(cardNum);
 				break;
 			}
 		}
@@ -141,6 +142,8 @@ public class Frame extends JFrame{
 		label.setPreferredSize(new Dimension(500, 500));
 		JOptionPane.showMessageDialog(null, label, "족보", JOptionPane.PLAIN_MESSAGE);
 	}
+	
+
 	
 	
 }
