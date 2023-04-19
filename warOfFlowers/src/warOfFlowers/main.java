@@ -66,7 +66,8 @@ public class main {
 
 			if (check == true) {
 				while (true) {
-
+					
+					frame.makePlayer();
 					System.out.print("[1]게임시작 [2]랭킹조회 [3]게임종료 >> ");
 					int mode = sc.nextInt();
 
@@ -104,8 +105,9 @@ public class main {
 									System.out.println(" \\ V  V / | || | | |" + "");
 									System.out.println("  \\_/\\_/  |_||_| |_|" + "");
 
-									player.setPoint(player.getPoint() + user_score);
+									player.setPoint(player.getPoint() + (user_score*10));
 									dao.setPoint(player);
+									System.out.println("+"+user_score*10 +"포인트 획득!");
 									System.out.println(player.getNickname() + "님 현재 포인트 : "+player.getPoint());
 								} else {
 									System.out.println(" _                   ");
@@ -114,8 +116,9 @@ public class main {
 									System.out.println("| | / _ \\ / __| / _ \\" + "");
 									System.out.println("| || (_) |\\__ \\|  __/" + "");
 									System.out.println("|_| \\___/ |___/ \\___|" + "");
-									player.setPoint(player.getPoint() - user_score);
+									player.setPoint(player.getPoint() - (user_score*10));
 									dao.setPoint(player);
+									System.out.println("-"+user_score*10 +"포인트 감점");
 									System.out.println(player.getNickname() + "님 현재 포인트 : "+player.getPoint());
 								
 
