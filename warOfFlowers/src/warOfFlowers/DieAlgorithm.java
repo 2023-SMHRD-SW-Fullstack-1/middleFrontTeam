@@ -45,8 +45,6 @@ public class DieAlgorithm {
 		case 5:
 			if (b == 1) {
 				return random > 6;
-			} else if (powerValue[b] > powerValue[a]) {
-				return random < powerValue[b] - powerValue[a] + 1;
 			} else {
 				return false;
 			}
@@ -94,8 +92,6 @@ public class DieAlgorithm {
 		case 15:
 			if (b == 1 || b == 5) {
 				return random > 5;
-			} else if (powerValue[b] > powerValue[a]) {
-				return random < powerValue[b] - powerValue[a] + 1;
 			} else {
 				return false;
 			}

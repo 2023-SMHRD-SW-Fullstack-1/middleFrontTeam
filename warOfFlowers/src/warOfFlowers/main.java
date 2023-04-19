@@ -148,7 +148,6 @@ public class main {
 							if (select == 1) {// 오픈
 
 								if (die.getC1() && die.getC2()==false) {// 컴1이 죽었을때
-									System.out.println("컴1 다이");
 									sound.playDealing();
 									frame.openFlower(1);
 									user_score = winLose.score(user, user_1);
@@ -159,7 +158,6 @@ public class main {
 									System.out.printf("%50s","컴퓨터2의 패 : " + winLose.scoreLevel(com2_score)+"\n");
 
 								} else if (die.getC2() && die.getC1()==false) {// 컴2이 죽었을때
-									System.out.println("컴2 다이");
 									sound.playDealing();
 									frame.openFlower(2);
 									user_score = winLose.score(user, user_1);
@@ -169,7 +167,6 @@ public class main {
 									System.out.printf("%50s","컴퓨터1의 패 : " + winLose.scoreLevel(com1_score)+"\n");
 
 								} else if(die.getC2() && die.getC1()) {
-									System.out.println("둘다 다이");
 									sound.playDealing();
 									frame.openFlower(3);
 									user_score = winLose.score(user, user_1);
