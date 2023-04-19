@@ -98,9 +98,10 @@ public class main {
 
 			if (check == true) {
 				while (true) {
-
-					System.out.printf("%55s", "[1]게임시작 [2]랭킹조회 [3]게임종료");
+					System.out.printf("%70s","-------------------------------------------------\n");
+					System.out.printf("%55s", "[1]게임시작 [2]랭킹조회 [3]게임종료 ");
 					int mode = sc.nextInt();
+					System.out.println("\n");
 
 					frame.deleteFlower();
 					if (mode == 1 && player.getPoint() >= 0) {// 게임시작
@@ -112,8 +113,9 @@ public class main {
 						die.setC1(die.die(com1, user, com2));
 						die.setC2(die.die(com2, user, com1));
 
-						System.out.printf("%40s","1.콜 "+"\n"+"2.다이"+"\n"+ "3.족보보기");
+						System.out.printf("%55s","[1]콜   [2]다이  [3]족보보기 ");
 						select = sc.nextInt();
+						System.out.println("\n");
 						if (select == 1) {// 콜
 							sound.playDealing();
 
@@ -135,28 +137,28 @@ public class main {
 
 							}
 
-							System.out.print("1.오픈 2.하프  >> ");
+							System.out.printf("%50s","[1]오픈 [2]하프 ");
 							select = sc.nextInt();
+							System.out.println("\n");
 							if (select == 1) {// 오픈
 
 								if (die.getC1() && die.getC2()==false) {// 컴1이 죽었을때
 									sound.playDealing();
-									frame.openFlower();
+									frame.openFlower(1);
 									user_score = winLose.score(user, user_1);
 									com1_score = -1;
 									com2_score = winLose.score(com2, com2_1);
-									System.out
-											.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
+									System.out.printf("%70s","-------------------------------------------------\n");
+									System.out.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
 									System.out.println("컴퓨터2의 패 : " + winLose.scoreLevel(com2_score));
 
 								} else if (die.getC2() && die.getC1()==false) {// 컴2이 죽었을때
 									sound.playDealing();
-									frame.openFlower();
+									frame.openFlower(2);
 									user_score = winLose.score(user, user_1);
 									com2_score = -1;
 									com1_score = winLose.score(com1, com1_1);
-									System.out
-											.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
+									System.out.println(player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score));
 									System.out.println("컴퓨터1의 패 : " + winLose.scoreLevel(com1_score));
 
 								} else {// 아무도 안죽었을때
