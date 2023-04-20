@@ -32,7 +32,7 @@ public class Frame extends JFrame {
 
 	    setLocationRelativeTo(null); // 화면 중앙에 위치하도록 설정
 
-	    int x = Toolkit.getDefaultToolkit().getScreenSize().width/2 - getWidth()/2 + 108; // x좌표 계산
+	    int x = Toolkit.getDefaultToolkit().getScreenSize().width/2 - getWidth()/2 + 100; // x좌표 계산
 	    setLocation(x, 0); // 오른쪽 정렬
 	    setVisible(true);
 	}
