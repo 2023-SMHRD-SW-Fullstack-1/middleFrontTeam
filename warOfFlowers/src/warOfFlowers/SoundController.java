@@ -15,6 +15,8 @@ public class SoundController {
 		soundMap.put("dealing", "sound/dealing.mp3");
 		soundMap.put("win", "sound/win.mp3");
 		soundMap.put("lose", "sound/lose.mp3");
+		soundMap.put("login", "sound/login.mp3");
+		soundMap.put("start", "sound/start.mp3");
 	}
 	
 	// 셔플링 사운드
@@ -45,6 +47,20 @@ public class SoundController {
 			mp3.stop();
 		}
 		mp3.play(soundMap.get("lose"));
+	}
+	
+	public void playLogin() {
+		if (mp3.isPlaying()) {
+			mp3.stop();
+		}
+		mp3.play(soundMap.get("login"));
+	}
+	
+	public void playStart() {
+		if (mp3.isPlaying()) {
+			mp3.stop();
+		}
+		mp3.play(soundMap.get("start"));
 	}
 
 	// 정지
