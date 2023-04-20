@@ -318,7 +318,8 @@ public class main {
 							String id = playerList.get(i).getId();
 							String nick = playerList.get(i).getNickname();
 							int point = playerList.get(i).getPoint();
-							System.out.printf("%60s",i + 1 + ". " + "ID : " + id + "\t NICK : " + nick + "\t POINT : " + point + "\n\n");
+//							System.out.printf("%60s",i + 1 + ". " + "ID : " + id + "\t NICK : " + nick + "\t POINT : " + point + "\n\n");
+							System.out.printf("\t\t%3d.\tID : %-8s\t NICK : %-16s\t POINT : %9d\n\n",i + 1 ,id, nick, point);
 
 						}
 
