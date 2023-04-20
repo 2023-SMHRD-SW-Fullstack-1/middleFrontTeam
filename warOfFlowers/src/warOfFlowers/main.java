@@ -256,6 +256,7 @@ public class main {
 							} else if (select == 2) {// 하프
 
 								System.out.printf("%55s","배팅포인트가 2배로 올라갑니다.\n");
+								System.out.println();
 
 								sound.playDealing();
 								frame.openFlower();
