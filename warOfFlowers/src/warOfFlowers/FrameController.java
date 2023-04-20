@@ -178,8 +178,48 @@ public class FrameController {
 		c.repaint();
 	}
 	
-	public void changeComdieImage(int num) {
-		
+	public void changeComDieImage(boolean yes, int comType) {
+		ComputerLabel c1;
+		ImageIcon icon;
+		Image image;
+		Icon newIcon;
+		ComputerLabel c2;
+		c1 = (ComputerLabel) c.getComponent(1);	
+		c2 = (ComputerLabel) c.getComponent(2);	 
+		if(yes) { // comdie 로 바꿀때
+			if(comType == 1) { // 컴퓨터1 or 컴퓨터2
+			    c1.filePath = "image/comDie.png";
+			    icon = new ImageIcon(c1.filePath);
+				image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
+				newIcon = new ImageIcon(image);
+				c1.setIcon(newIcon);
+				rePrint();
+			}else { 
+			    c2.filePath = "image/comDie.png";
+			    icon = new ImageIcon(c2.filePath);
+				image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
+				newIcon = new ImageIcon(image);
+				c2.setIcon(newIcon);
+				rePrint();
+			}
+			
+		}else { // 다시 com 으로 바꿀때
+			if(comType == 1) { // 컴퓨터1  
+			    c1.filePath = "image/com.png";
+			    icon = new ImageIcon(c1.filePath);
+				image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
+				newIcon = new ImageIcon(image);
+				c1.setIcon(newIcon);
+				rePrint();
+			}else { // 컴퓨터2   
+			    c2.filePath = "image/com.png";
+			    icon = new ImageIcon(c2.filePath);
+				image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
+				newIcon = new ImageIcon(image);
+				c2.setIcon(newIcon);
+				rePrint();
+			}
+		}
 	}
 	
 //	

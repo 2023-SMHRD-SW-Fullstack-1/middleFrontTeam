@@ -100,6 +100,8 @@ public class main {
 					System.out.println("\n");
 
 					frame.deleteFlower();
+					frame.changeComDieImage(false,1);
+					frame.changeComDieImage(false,2);
 					if (mode == 1 && player.getPoint() >= 0) {// 게임시작
 						sound.playShuffle();
 
@@ -119,6 +121,8 @@ public class main {
 								frame.makeBlankFlower();
 								frame.makeBlankFlower();
 								frame.makeBlankFlower();
+								frame.changeComDieImage(true,1);//
+								frame.changeComDieImage(true,2);//
 								
 								System.out.printf("%50s","컴퓨터 1, 컴퓨터 2 다이");
 								System.out.println();
@@ -127,6 +131,7 @@ public class main {
 								user_1 = frame.makeFlower();
 								com1_1 = frame.makeFakeFlower();
 								frame.makeBlankFlower();
+								frame.changeComDieImage(true,2);//
 								
 								System.out.printf("%50s","컴퓨터 2 다이");
 								System.out.println();
@@ -135,6 +140,7 @@ public class main {
 								user_1 = frame.makeFlower();
 								frame.makeBlankFlower();
 								com2_1 = frame.makeFakeFlower();
+								frame.changeComDieImage(true,1); //
 								
 								System.out.printf("%50s","컴퓨터 1 다이");
 								System.out.println();
