@@ -8,6 +8,8 @@ public class DieAlgorithm {
 	private boolean c1 = false;
 	private boolean c2 = false;
 	int[] powerValue = { 0, 10, 10, 7, 7, 4, 4, 8, 8, 1, 1, 5, 5, 3, 3, 2, 2, 6, 6, 9, 9 };
+//	                    1>10=4>>2=9=6>>3(광)=7=8(광)=5    월마다 카드의 파워밸류 값 할당
+//			            10 9 8  7 6 5   4   3   2   1
 
 	public boolean getC1() {
 		return c1;
@@ -25,7 +27,7 @@ public class DieAlgorithm {
 		this.c2 = c2;
 	}
 
-	// a가 죽을지말지 b,c와 비교하여 boolean 리턴하는 메소드 (die : true)
+	// a가 죽을지말지 b,c와 비교하여 boolean 리턴하는 메소드 (리턴이 true면 다이)
 	public boolean die(int a, int b, int c) {
 		random = rd.nextInt(10) + 1;
 		switch (a) {

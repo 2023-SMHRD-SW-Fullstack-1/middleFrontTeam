@@ -37,22 +37,4 @@ public class PlayerDTO {
 		this.id = id;
 	}
 	
-	// 점수 합산 (승패)
-	public void calWinLose(boolean winlose) {
-		if (winlose) {
-			this.point += 200;
-		} else {
-			this.point -= 200;
-		}
-	}
-	
-	// 죽었을때
-	public void calDie(boolean die) {
-		this.point -= 100;
-	}
-	
-
-	
-	
-	
 }
