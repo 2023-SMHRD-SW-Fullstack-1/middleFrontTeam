@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class main {
 	public static PlayerDTO player = null;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		Scanner sc = new Scanner(System.in);
 		PlayerDAO dao = new PlayerDAO();
@@ -33,9 +33,19 @@ public class main {
 
 			if (check == false) {
 
-				System.out.println(asc.start());
+				for(int i=0; i<3; i++) {
+
+					    asc.sign();
+						Thread.sleep(10*50); //일정기간동안 진행을 멈추어 반복 -> 반짝이는 효과
+						asc.clearScreen();
+						asc.drawSign();
+						Thread.sleep(10*50);
+						asc.clearScreen();
+						asc.drawNewSign();
+					}
 				
 				System.out.println();
+				System.out.println(asc.rabbit()); 
 				System.out.printf("%50s", "[1]로그인    [2]회원가입 ");
 				select = sc.nextInt();
 				if (select == 1) { // 로그인
@@ -106,7 +116,7 @@ public class main {
 							sound.playDealing();
 							
 							if (die.getC1() && die.getC2()) {// 둘다 죽었을때
-								user_1 = frame.makeFlower();
+								frame.makeBlankFlower();
 								frame.makeBlankFlower();
 								frame.makeBlankFlower();
 								
