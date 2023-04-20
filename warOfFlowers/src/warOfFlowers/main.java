@@ -327,6 +327,7 @@ public class main {
 						System.out.printf("%55s", "게임을 종료합니다\n");
 						frame.deleteFlower();
 						stop = 1;
+						System.exit(1);
 						break Label;
 					} else if (player.getPoint() <= 0) {
 						System.out.printf("%55s", "포인트가 부족합니다. 충전하세요\n");
