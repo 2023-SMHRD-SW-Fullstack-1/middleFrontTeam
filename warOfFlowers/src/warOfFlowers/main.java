@@ -19,7 +19,7 @@ public class main {
 
 		int select;
 		boolean check = false;
-		int stop = 0;
+		int stop = -1;
 		int user = 0;
 		int user_1 = 0;
 		int user_score = 0;
@@ -29,6 +29,24 @@ public class main {
 		int com2 = 0;
 		int com2_1 = 0;
 		int com2_score = 0;
+		
+		
+		String a ="\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+				+"◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇\r\n"
+				+ "◇                  _______. __    __  .___________.         _______       ___                      ◇\r\n"
+				+ "◇                  /       ||  |  |  | |           |        |       \\     /   \\                    ◇\r\n"
+				+ "◇                 |   (----`|  |  |  | `---|  |----` ______ |  .--.  |   /  ^  \\                   ◇\r\n"
+				+ "◇                  \\   \\    |  |  |  |     |  |     |______||  |  |  |  /  /_\\  \\                  ◇\r\n"
+				+ "◇              .----)   |   |  `--'  |     |  |             |  '--'  | /  _____  \\                 ◇\r\n"
+				+ "◇              |_______/     \\______/      |__|             |_______/ /__/     \\__\\                ◇ \r\n"
+				+ "◇                                                                                                  ◇\r\n"
+				+ "◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇";
+		System.out.println(a);
+		System.out.println("게임을 시작하려면 1번을 누르세요");
+		int start = sc.nextInt();
+		if(start==1) {
+			stop =0;
+		}
 
 		while (stop == 0) {
 
