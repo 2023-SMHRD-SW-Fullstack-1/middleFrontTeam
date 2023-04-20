@@ -32,6 +32,7 @@ public class FrameController {
 		
 	}
 	
+	// 화투패 랜덤으로 만들기
 	public int makeFlower() {
 		CardController cc = new CardController();
 		int cardNum;
@@ -52,6 +53,7 @@ public class FrameController {
 		
 	}
 	
+	// 화투 뒷면패 만들기
 	public int makeFakeFlower() {
 		CardController cc = new CardController();
 		int cardNum;
@@ -74,6 +76,7 @@ public class FrameController {
 		
 	}
 	
+	// 빈화면 만들기
 	public void makeBlankFlower() {
 		imgLabel img = new imgLabel(99);
 		c.add(img);
@@ -81,6 +84,7 @@ public class FrameController {
 		rePrint();
 	}
 	
+	// 화투패 뒤집기
 	public void openFlower() {
 		c.remove(11);
 		c.remove(10);
@@ -92,6 +96,7 @@ public class FrameController {
 		
 	}
 	
+	// 컴퓨터가 기권했을때 화투패 뒤집기
 	public void openFlower(int num) {
 		if( num == 1) { // com1 die
 
@@ -121,7 +126,7 @@ public class FrameController {
 		
 	}
 	
-	
+	// 다시 게임시작시 화투패 지우기
 	public void deleteFlower() {
 		int componentCount = c.getComponentCount();
 		if(componentCount == 9) {
@@ -143,7 +148,7 @@ public class FrameController {
 		}
 	}
 	
-	
+	// 족보창 띄우기
 	public void showPriority() {
 		String filePath = "image/zokbo.jpg";
 		ImageIcon icon = new ImageIcon(filePath);
@@ -154,6 +159,7 @@ public class FrameController {
 		JOptionPane.showMessageDialog(null, label, "족보", JOptionPane.PLAIN_MESSAGE);
 	}
 	
+	// 텍스트창 띄우기
 	public void makePlayer() {
         c.add(new PlayerText(main.player));
         c.add(new ComputerText());
@@ -161,16 +167,19 @@ public class FrameController {
         rePrint();
 	}
 	
+	// 플레이어의 머니 갱신하기
 	public void rePaintMoney(PlayerDTO player) {
 		PlayerText.userScore.setText("머니: "+player.getPoint());
 		rePrint();
 	}
 	
+	// 화면 새로고침하기
 	public void rePrint() {
 		c.validate();
 		c.repaint();
 	}
 	
+	// 컴퓨터 죽었을떄 컴퓨터 이미지 변경
 	public void changeComDieImage(boolean yes, int comType) {
 		ComputerLabel c1;
 		ImageIcon icon;
