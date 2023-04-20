@@ -13,7 +13,6 @@ public class BlankLabel extends JLabel {
 		Image image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 		Icon newIcon = new ImageIcon(image);
 		
-		// 그림자 조절
 		setSize(140,140);
 		setIcon(newIcon);
 	}

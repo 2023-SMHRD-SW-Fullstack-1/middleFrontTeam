@@ -41,8 +41,5 @@ public class Frame extends JFrame {
 		return c;
 	}
 
-	public void setC(Container c) {
-		this.c = c;
-	}
 
 }

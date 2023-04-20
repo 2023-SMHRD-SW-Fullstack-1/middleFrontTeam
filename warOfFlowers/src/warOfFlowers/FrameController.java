@@ -58,10 +58,7 @@ public class FrameController {
 	public int makeFakeFlower() {
 		CardController cc = new CardController();
 		int cardNum;
-//		cardNum = cc.getRandomCard().getNumber();
-//		System.out.println(cardNum);
-		
-		
+
 		while(true) {
 			cardNum = cc.getRandomCard().getNumber();
 			if(isDuplicate(cardNum)) {
@@ -222,12 +219,5 @@ public class FrameController {
 		}
 	}
 	
-//	
-//	public void showWhatPlayerFlower() {
-//		WhatFlowerLabel fl = new WhatFlowerLabel();
-//		c.add(fl);
-//		c.validate();
-//		c.repaint();
-//	}
 	
 }
