@@ -1,12 +1,13 @@
 package warOfFlowers;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class main {
 	public static PlayerDTO player = null;
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException{
 
 		Scanner sc = new Scanner(System.in);
 		PlayerDAO dao = new PlayerDAO();
