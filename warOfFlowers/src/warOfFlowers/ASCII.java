@@ -1,12 +1,18 @@
 package warOfFlowers;
 
 public class ASCII {
-
-	public static String sign() {
-		StringBuilder sb = new StringBuilder();
+	StringBuilder sb;
+	public ASCII(StringBuilder sb) {
 		for (int i = 0; i< 39; i++) {
 			sb.append("\n");
 		}
+		this.sb = sb;
+		
+	}
+	
+
+	public String sign() {
+		
 
 		String a =sb
 				+ "◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇\r\n"
@@ -24,12 +30,9 @@ public class ASCII {
 		return a;
 	}
 	
-	public static String newSign2() {
+	public String newSign2() {
 		
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i< 39; i++) {
-			sb.append("\n");
-		}
+		
 
 		String a =sb
 				+"◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇\r\n"
@@ -48,11 +51,8 @@ public class ASCII {
 	
 	
 
-	public static String newSign() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i< 39; i++) {
-			sb.append("\n");
-		}
+	public String newSign() {
+		
 		
 		String b =sb
 				+"◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇\r\n"
@@ -68,20 +68,20 @@ public class ASCII {
 		return b;
 	}
 	
-	public static void drawNewSign2() { 
+	public void drawNewSign2() { 
 		System.out.println(newSign2());
 	
 
 	}
 
 
-	public static void drawNewSign() { 
+	public void drawNewSign() { 
 		System.out.println(newSign());
 	
 
 	}
 
-	public static void drawSign() {
+	public void drawSign() {
 		System.out.println(sign());
 	
 	}
@@ -91,7 +91,7 @@ public class ASCII {
 //		
 //	}
 	
-	public static String rabbit() {
+	public String rabbit() {
 		
 		return "   			  	   ┌─────────────────┐\r\n"
 			+  "  	    			        GAME START!  \r\n"
@@ -105,34 +105,22 @@ public class ASCII {
 
 
 	public String win() {
-		return "		____    __    ____  __  .__   __. \r\n" 
-				+ "		\\   \\  /  \\  /   / |  | |  \\ |  | \r\n"
-				+ "		 \\   \\/    \\/   /  |  | |   \\|  | \r\n" 
-				+ "		  \\            /   |  | |  . `  | \r\n"
-				+ "		   \\    /\\    /    |  | |  |\\   | \r\n" 
-				+ "		    \\__/  \\__/     |__| |__| \\__| \r\n"
-				+ "		                                  ";
+		return "____    __    ____  __  .__   __. \r\n" + "\\   \\  /  \\  /   / |  | |  \\ |  | \r\n"
+				+ " \\   \\/    \\/   /  |  | |   \\|  | \r\n" + "  \\            /   |  | |  . `  | \r\n"
+				+ "   \\    /\\    /    |  | |  |\\   | \r\n" + "    \\__/  \\__/     |__| |__| \\__| \r\n"
+				+ "                                  ";
 	}
 
 	public String lose() {
-		return " 		__        ______        _______. _______ \r\n" 
-				+ "		|  |      /  __  \\      /       ||   ____|\r\n"
-				+ "		|  |     |  |  |  |    |   (----`|  |__   \r\n" 
-				+ "		|  |     |  |  |  |     \\   \\    |   __|  \r\n"
-				+ "		|  `----.|  `--'  | .----)   |   |  |____ \r\n" 
-				+ "		|_______| \\______/  |_______/    |_______|\r\n"
+		return " __        ______        _______. _______ \r\n" + "|  |      /  __  \\      /       ||   ____|\r\n"
+				+ "|  |     |  |  |  |    |   (----`|  |__   \r\n" + "|  |     |  |  |  |     \\   \\    |   __|  \r\n"
+				+ "|  `----.|  `--'  | .----)   |   |  |____ \r\n" + "|_______| \\______/  |_______/    |_______|\r\n"
 				+ "                                          ";
 
 	}
 
 	public String draw() {
-		return " 		_______  .______           ___      ____    __    ____ \r\n"
-				+ "		|       \\ |   _  \\         /   \\     \\   \\  /  \\  /   / \r\n"
-				+ "		|  .--.  ||  |_)  |       /  ^  \\     \\   \\/    \\/   /  \r\n"
-				+ "		|  |  |  ||      /       /  /_\\  \\     \\            /   \r\n"
-				+ "		|  '--'  ||  |\\  \\----. /  _____  \\     \\    /\\    /    \r\n"
-				+ "		|_______/ | _| `._____|/__/     \\__\\     \\__/  \\__/     \r\n"
-				+ "                                                       ";
+		return "";
 	}
 
 }

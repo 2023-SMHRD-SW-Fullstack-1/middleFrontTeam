@@ -14,7 +14,7 @@ public class main {
 		Win_Lose winLose = new Win_Lose();
 		SoundController sound = new SoundController();
 		DieAlgorithm die = new DieAlgorithm();
-		ASCII asc = new ASCII();
+		ASCII asc = new ASCII(new StringBuilder());
 
 		int select;
 		boolean check = false;
