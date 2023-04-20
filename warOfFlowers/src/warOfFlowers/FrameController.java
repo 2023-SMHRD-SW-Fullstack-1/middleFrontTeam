@@ -12,11 +12,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class FrameController {
-	
+	PlayerDTO player = null;
 	ArrayList<Integer> arr = new ArrayList<>();
 	Container c;
 	
-	public FrameController() {
+	public FrameController(PlayerDTO player) {
+		this.player = player;
 		Frame frame = new Frame();
 		c = frame.getC();
 	}
@@ -161,7 +162,7 @@ public class FrameController {
 	
 	// 텍스트창 띄우기
 	public void makePlayer() {
-        c.add(new PlayerText(main.player));
+        c.add(new PlayerText(player));
         c.add(new ComputerText());
         c.add(new ComputerText());
         rePrint();

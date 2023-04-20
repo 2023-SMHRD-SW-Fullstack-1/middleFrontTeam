@@ -5,13 +5,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class main {
-	public static PlayerDTO player = null;
+	
 
 	public static void main(String[] args) throws InterruptedException {
-
+		PlayerDTO player = null;
 		Scanner sc = new Scanner(System.in);
 		PlayerDAO dao = new PlayerDAO();
-		FrameController frame = new FrameController();
+		FrameController frame = null;
 		Win_Lose winLose = new Win_Lose();
 		SoundController sound = new SoundController();
 		DieAlgorithm die = new DieAlgorithm();
@@ -47,8 +47,9 @@ public class main {
 		if(start==1) {
 			stop =0;
 		}
+		
 
-		while (stop == 0) {
+		Label : while (stop == 0) {
 
 			if (check == false) {
 
@@ -93,6 +94,7 @@ public class main {
 						System.out.printf("%55s", player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
 						System.out.println("\n");
 						check = true;
+						frame = new FrameController(player);
 						frame.makePlayer();
 						continue;
 					} else {
@@ -335,6 +337,7 @@ public class main {
 
 						} else if (select == 3) {// 족보보기
 							frame.showPriority();
+							continue;
 						}
 
 						else {
@@ -355,7 +358,7 @@ public class main {
 						System.out.printf("%55s", "게임을 종료합니다\n");
 						frame.deleteFlower();
 						stop = 1;
-						break;
+						break Label;
 					} else if (player.getPoint() <= 0) {
 						System.out.printf("%55s", "포인트가 부족합니다. 충전하세요\n");
 						check = false;
@@ -363,11 +366,12 @@ public class main {
 					} else {
 						System.out.printf("%55s", "번호를 다시 입력해 주세요\n");
 					}
-
+					
 				}
 			}
 
 		}
+		System.out.println("Aaa");
 
 	}
 
