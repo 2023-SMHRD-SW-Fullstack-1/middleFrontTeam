@@ -228,6 +228,7 @@ public class main {
 
 								if (winLose.result(user_score, com1_score, com2_score) == 2) {
 									System.out.println(asc.win());
+									sound.playWin();
 
 									System.out.println();
 
@@ -238,6 +239,7 @@ public class main {
 								} else if (winLose.result(user_score, com1_score, com2_score) == 0) {
 									System.out.println();
 									System.out.println(asc.lose());
+									sound.playLose();
 
 									System.out.println();
 									player.setPoint(player.getPoint() - 200);
@@ -271,6 +273,7 @@ public class main {
 								if (winLose.result(user_score, com1_score, com2_score) == 2) {
 									System.out.println();
 									System.out.println(asc.win());
+									sound.playWin();
 
 									System.out.println();
 
@@ -281,6 +284,7 @@ public class main {
 								} else if (winLose.result(user_score, com1_score, com2_score) == 0) {
 									System.out.println();
 									System.out.println(asc.lose());
+									sound.playLose();
 
 									System.out.println();
 									player.setPoint(player.getPoint() - 400);
