@@ -110,15 +110,25 @@ public class main {
 								frame.makeBlankFlower();
 								frame.makeBlankFlower();
 								
+								System.out.printf("%50s","컴퓨터 1, 컴퓨터 2 다이");
+								System.out.println();
+								continue;
 							} else if (die.getC2()) {// 컴2이 죽었을때
 								user_1 = frame.makeFlower();
 								com1_1 = frame.makeFakeFlower();
 								frame.makeBlankFlower();
+								
+								System.out.printf("%50s","컴퓨터 2 다이");
+								System.out.println();
+								System.out.printf("%52s","[1]오픈 [2]하프 ");
 							} else if (die.getC1()) {// 컴1 죽었을때
 								user_1 = frame.makeFlower();
 								frame.makeBlankFlower();
 								com2_1 = frame.makeFakeFlower();
 								
+								System.out.printf("%50s","컴퓨터 1 다이");
+								System.out.println();
+								System.out.printf("%52s","[1]오픈 [2]하프 ");
 							} 
 							
 							else {// 아무도 안죽었을때
@@ -126,9 +136,10 @@ public class main {
 								com1_1 = frame.makeFakeFlower();
 								com2_1 = frame.makeFakeFlower();
 
+								System.out.println();
+								System.out.printf("%50s","[1]오픈 [2]하프 ");
 							}
 
-							System.out.printf("%50s","[1]오픈 [2]하프 ");
 							select = sc.nextInt();
 							System.out.printf("%70s","-------------------------------------------------\n");
 							if (select == 1) {// 오픈
