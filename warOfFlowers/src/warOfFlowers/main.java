@@ -33,20 +33,31 @@ public class main {
 
 			if (check == false) {
 
-				for(int i=0; i<3; i++) {
+				for(int i=0; i<6; i++) {
 
 					    asc.sign();
-						Thread.sleep(10*50); //일정기간동안 진행을 멈추어 반복 -> 반짝이는 효과
-						asc.clearScreen();
+						Thread.sleep(5*50); //일정기간동안 진행을 멈추어 반복 -> 반짝이는 효과
+						//asc.clearScreen();
 						asc.drawSign();
-						Thread.sleep(10*50);
-						asc.clearScreen();
+						//asc.clearScreen();
+						Thread.sleep(5*50);
+						//asc.clearScreen();
 						asc.drawNewSign();
+						//asc.clearScreen();
+						
+						if(i==5) {		
+						asc.drawNewSign2();
+						}
 					}
 				
 				System.out.println();
 				System.out.println(asc.rabbit()); 
 				System.out.printf("%50s", "[1]로그인    [2]회원가입 ");
+				StringBuilder sb = new StringBuilder();
+				for (int i = 0; i< 31; i++) {
+					sb.append("\n");
+				}
+				System.out.println(sb);
 				select = sc.nextInt();
 				if (select == 1) { // 로그인
 					System.out.printf("%40s", "ID 입력 : ");
@@ -307,6 +318,8 @@ public class main {
 						break;
 					} else if (player.getPoint() <= 0) {
 						System.out.println("포인트가 부족합니다. 충전하세요");
+						check=false;
+						break;
 					} else {
 						System.out.println("번호를 다시 입력해 주세요");
 					}
