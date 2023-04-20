@@ -10,7 +10,7 @@ public class SoundController {
 	
 	MP3Player mp3 = new MP3Player();
 
-	public SoundController() {
+	public SoundController() { // 해시맵<사운드명, 경로>을 생성 후 소리 사운드명, 경로 할당
 		soundMap.put("shuffle", "sound/shuffle.mp3");
 		soundMap.put("dealing", "sound/dealing.mp3");
 		soundMap.put("win", "sound/win.mp3");
