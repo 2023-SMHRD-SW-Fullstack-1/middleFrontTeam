@@ -32,7 +32,8 @@ public class main {
 		while (stop == 0) {
 
 			if (check == false) {
-
+				
+				sound.playStart();
 				for (int i = 0; i < 6; i++) {
 
 					asc.sign();
@@ -68,6 +69,7 @@ public class main {
 
 					player = dao.login(id, pw);
 					if (player != null) {
+						sound.playLogin();
 						System.out.printf("%55s", player.getNickname() + "님이 로그인 되었습니다." + "\n");
 						System.out.printf("%55s", player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
 						System.out.println("\n");
@@ -98,8 +100,10 @@ public class main {
 					Boolean join = dao.signup(joinId, joinPw, joinNick);
 					if (join == true) {
 						System.out.println();
+						sound.playLogin();
 						System.out.printf("%50s","회원가입 완료!\n");
 						Thread.sleep(30 * 50);
+						
 					} else {
 						System.out.println();
 						System.out.printf("%55s","중복된 아이디 입니다.\n");
