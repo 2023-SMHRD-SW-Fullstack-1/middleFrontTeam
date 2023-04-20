@@ -35,9 +35,6 @@ public class FrameController {
 	public int makeFlower() {
 		CardController cc = new CardController();
 		int cardNum;
-//		cardNum = cc.getRandomCard().getNumber();
-//		System.out.println(cardNum);
-		
 		
 		while(true) {
 			cardNum = cc.getRandomCard().getNumber();
@@ -148,7 +145,6 @@ public class FrameController {
 	
 	
 	public void showPriority() {
-//		String filePath = "image/zokbo.jpg";
 		String filePath = "image/zokbo.jpg";
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);

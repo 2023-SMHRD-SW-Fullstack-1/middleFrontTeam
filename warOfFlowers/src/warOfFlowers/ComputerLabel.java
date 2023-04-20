@@ -10,7 +10,6 @@ public class ComputerLabel extends JLabel{
 	
 	String filePath;
 	public ComputerLabel() {
-//		String filePath = "src/flowersImg/com.png";
 		filePath = "image/com.png";
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);

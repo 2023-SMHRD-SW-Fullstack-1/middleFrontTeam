@@ -20,7 +20,7 @@ public class CardController {
 	}
 	
 	public Card getRandomCard() {
-		// 1~20 까지 랜덤카드 출력
+		// 1~20 까지 랜덤카드 리턴
 		Random rd = new Random();
 		int num = rd.nextInt(20) + 1;
 		Card card = new Card();
