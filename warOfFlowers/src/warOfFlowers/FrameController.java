@@ -177,6 +177,11 @@ public class FrameController {
 		c.validate();
 		c.repaint();
 	}
+	
+	public void changeComdieImage(int num) {
+		
+	}
+	
 //	
 //	public void showWhatPlayerFlower() {
 //		WhatFlowerLabel fl = new WhatFlowerLabel();

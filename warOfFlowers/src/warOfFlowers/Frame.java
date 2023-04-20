@@ -18,13 +18,13 @@ public class Frame extends JFrame {
 
 	    c = getContentPane();
 
-	    c.setLayout(new FlowLayout(FlowLayout.LEFT, 50, 12));
+	    c.setLayout(new FlowLayout(FlowLayout.LEFT, 50, 20));
 	    c.add(new PeopleLabel());
 	    c.add(new ComputerLabel());
 	    c.add(new ComputerLabel());
 
 	    c.setBackground(new Color(77, 70, 24));
-	    setSize(480, 1080);
+	    setSize(480, 600);
 	    setResizable(false);
 
 	    setLocationRelativeTo(null); // 화면 중앙에 위치하도록 설정
