@@ -158,191 +158,197 @@ public class main {
 						die.setC1(die.die(com1, user, com2));
 						die.setC2(die.die(com2, user, com1));
 
-						System.out.printf("%55s", "[1]콜   [2]다이  [3]족보보기 ");
-						select = sc.nextInt();
-						System.out.println();
-						if (select == 1) {// 콜
-							sound.playDealing();
-
-							if (die.getC1() && die.getC2()) {// 둘다 죽었을때
-								frame.makeBlankFlower();
-								frame.makeBlankFlower();
-								frame.makeBlankFlower();
-								frame.changeComDieImage(true, 1);//
-								frame.changeComDieImage(true, 2);//
-
-								System.out.printf("%50s", "컴퓨터 1, 컴퓨터 2 다이");
-								System.out.println();
-								continue;
-							} else if (die.getC2()) {// 컴2이 죽었을때
-								user_1 = frame.makeFlower();
-								com1_1 = frame.makeFakeFlower();
-								frame.makeBlankFlower();
-								frame.changeComDieImage(true, 2);//
-
-								System.out.printf("%50s", "컴퓨터 2 다이");
-								System.out.println();
-								System.out.printf("%52s", "[1]오픈 [2]하프 ");
-							} else if (die.getC1()) {// 컴1 죽었을때
-								user_1 = frame.makeFlower();
-								frame.makeBlankFlower();
-								com2_1 = frame.makeFakeFlower();
-								frame.changeComDieImage(true, 1); //
-
-								System.out.printf("%50s", "컴퓨터 1 다이");
-								System.out.println();
-								System.out.printf("%52s", "[1]오픈 [2]하프 ");
-							}
-
-							else {// 아무도 안죽었을때
-								user_1 = frame.makeFlower();
-								com1_1 = frame.makeFakeFlower();
-								com2_1 = frame.makeFakeFlower();
-
-								System.out.println();
-								System.out.printf("%50s", "[1]오픈 [2]하프 ");
-							}
-
+						while(true) {
+							System.out.printf("%55s", "[1]콜   [2]다이  [3]족보보기 ");
 							select = sc.nextInt();
-							System.out.printf("------------------------------------------------------------------------------------------------------\n\n");
-							if (select == 1) {// 오픈
+							System.out.println();
+							if (select == 1) {// 콜
 								sound.playDealing();
-								if (die.getC1() && die.getC2() == false) {// 컴1이 죽었을때
-									frame.openFlower(1);
-									user_score = winLose.score(user, user_1);
-									com1_score = -1;
-									com2_score = winLose.score(com2, com2_1);
 
-									System.out.printf("%50s",
-											player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score) + "\n");
-									System.out.printf("%50s", "컴퓨터2의 패 : " + winLose.scoreLevel(com2_score) + "\n");
+								if (die.getC1() && die.getC2()) {// 둘다 죽었을때
+									frame.makeBlankFlower();
+									frame.makeBlankFlower();
+									frame.makeBlankFlower();
+									frame.changeComDieImage(true, 1);//
+									frame.changeComDieImage(true, 2);//
 
-								} else if (die.getC2() && die.getC1() == false) {// 컴2이 죽었을때
-									frame.openFlower(2);
-									user_score = winLose.score(user, user_1);
-									com2_score = -1;
-									com1_score = winLose.score(com1, com1_1);
-									System.out.printf("%50s",
-											player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score) + "\n");
-									System.out.printf("%50s", "컴퓨터1의 패 : " + winLose.scoreLevel(com1_score) + "\n");
+									System.out.printf("%50s", "컴퓨터 1, 컴퓨터 2 다이");
+									System.out.println();
+									continue;
+								} else if (die.getC2()) {// 컴2이 죽었을때
+									user_1 = frame.makeFlower();
+									com1_1 = frame.makeFakeFlower();
+									frame.makeBlankFlower();
+									frame.changeComDieImage(true, 2);//
 
-								} else if (die.getC2() && die.getC1()) {
-									frame.openFlower(3);
-									user_score = winLose.score(user, user_1);
-									com2_score = -1;
-									com1_score = -1;
-									System.out.printf("%50s",
-											player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score) + "\n");
-									System.out.printf("%50s", "컴퓨터1의 패 : " + winLose.scoreLevel(com1_score) + "\n");
+									System.out.printf("%50s", "컴퓨터 2 다이");
+									System.out.println();
+									System.out.printf("%52s", "[1]오픈 [2]하프 ");
+								} else if (die.getC1()) {// 컴1 죽었을때
+									user_1 = frame.makeFlower();
+									frame.makeBlankFlower();
+									com2_1 = frame.makeFakeFlower();
+									frame.changeComDieImage(true, 1); //
+
+									System.out.printf("%50s", "컴퓨터 1 다이");
+									System.out.println();
+									System.out.printf("%52s", "[1]오픈 [2]하프 ");
 								}
 
 								else {// 아무도 안죽었을때
+									user_1 = frame.makeFlower();
+									com1_1 = frame.makeFakeFlower();
+									com2_1 = frame.makeFakeFlower();
+
+									System.out.println();
+									System.out.printf("%50s", "[1]오픈 [2]하프 ");
+								}
+
+								select = sc.nextInt();
+								System.out.printf("------------------------------------------------------------------------------------------------------\n\n");
+								if (select == 1) {// 오픈
+									sound.playDealing();
+									if (die.getC1() && die.getC2() == false) {// 컴1이 죽었을때
+										frame.openFlower(1);
+										user_score = winLose.score(user, user_1);
+										com1_score = -1;
+										com2_score = winLose.score(com2, com2_1);
+
+										System.out.printf("%50s",
+												player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score) + "\n");
+										System.out.printf("%50s", "컴퓨터2의 패 : " + winLose.scoreLevel(com2_score) + "\n");
+
+									} else if (die.getC2() && die.getC1() == false) {// 컴2이 죽었을때
+										frame.openFlower(2);
+										user_score = winLose.score(user, user_1);
+										com2_score = -1;
+										com1_score = winLose.score(com1, com1_1);
+										System.out.printf("%50s",
+												player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score) + "\n");
+										System.out.printf("%50s", "컴퓨터1의 패 : " + winLose.scoreLevel(com1_score) + "\n");
+
+									} else if (die.getC2() && die.getC1()) {
+										frame.openFlower(3);
+										user_score = winLose.score(user, user_1);
+										com2_score = -1;
+										com1_score = -1;
+										System.out.printf("%50s",
+												player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score) + "\n");
+										System.out.printf("%50s", "컴퓨터1의 패 : " + winLose.scoreLevel(com1_score) + "\n");
+									}
+
+									else {// 아무도 안죽었을때
+										frame.openFlower();
+										user_score = winLose.score(user, user_1);
+										com1_score = winLose.score(com1, com1_1);
+										com2_score = winLose.score(com2, com2_1);
+
+										System.out.printf("%50s",
+												player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score) + "\n");
+										System.out.printf("%50s", "컴퓨터1의 패 : " + winLose.scoreLevel(com1_score) + "\n");
+										System.out.printf("%50s", "컴퓨터2의 패 : " + winLose.scoreLevel(com2_score) + "\n");
+									}
+
+									if (winLose.result(user_score, com1_score, com2_score) == 2) {
+										System.out.println(asc.win());
+										sound.playWin();
+
+										System.out.println();
+
+										player.setPoint(player.getPoint() + 200);
+										dao.setPoint(player);
+										System.out.printf("%55s", "+200 포인트 획득!\n");
+										System.out.printf("%55s",
+												player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
+									} else if (winLose.result(user_score, com1_score, com2_score) == 0) {
+										System.out.println();
+										System.out.println(asc.lose());
+										sound.playLose();
+
+										System.out.println();
+										player.setPoint(player.getPoint() - 200);
+										dao.setPoint(player);
+										System.out.printf("%55s", "-200포인트 감점\n");
+										System.out.printf("%55s",
+												player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
+
+									} else {
+										System.out.println();
+										System.out.println(asc.draw());
+
+									}
+
+									frame.rePaintMoney(player);
+									break;
+
+								} else if (select == 2) {// 하프
+									System.out.printf("%55s", "배팅포인트가 2배로 올라갑니다.\n");
+									System.out.println();
+
 									frame.openFlower();
 									user_score = winLose.score(user, user_1);
 									com1_score = winLose.score(com1, com1_1);
 									com2_score = winLose.score(com2, com2_1);
 
-									System.out.printf("%50s",
-											player.getNickname() + "님의 패 : " + winLose.scoreLevel(user_score) + "\n");
-									System.out.printf("%50s", "컴퓨터1의 패 : " + winLose.scoreLevel(com1_score) + "\n");
-									System.out.printf("%50s", "컴퓨터2의 패 : " + winLose.scoreLevel(com2_score) + "\n");
+									System.out.printf("%55s", "나의 패 : " + winLose.scoreLevel(user_score) + "\n");
+									System.out.printf("%55s", "컴퓨터1의 패 : " + winLose.scoreLevel(com1_score) + "\n");
+									System.out.printf("%55s", "컴퓨터2의 패 : " + winLose.scoreLevel(com2_score) + "\n");
+
+									if (winLose.result(user_score, com1_score, com2_score) == 2) {
+										System.out.println();
+										System.out.println(asc.win());
+										sound.playWin();
+
+										System.out.println();
+
+										player.setPoint(player.getPoint() + 400);
+										dao.setPoint(player);
+										System.out.printf("%55s", "+400 포인트 획득!\n");
+										System.out.printf("%55s",
+												player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
+									} else if (winLose.result(user_score, com1_score, com2_score) == 0) {
+										System.out.println();
+										System.out.println(asc.lose());
+										sound.playLose();
+
+										System.out.println();
+										player.setPoint(player.getPoint() - 400);
+										dao.setPoint(player);
+										System.out.printf("%55s", "-400포인트 감점\n");
+										System.out.printf("%55s",
+												player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
+
+									} else {
+										System.out.println();
+										System.out.println(asc.draw());
+
+									}
+
+									frame.rePaintMoney(player);
+									Thread.sleep(20 * 50);
+									break;
+
 								}
 
-								if (winLose.result(user_score, com1_score, com2_score) == 2) {
-									System.out.println(asc.win());
-									sound.playWin();
-
-									System.out.println();
-
-									player.setPoint(player.getPoint() + 200);
-									dao.setPoint(player);
-									System.out.printf("%55s", "+200 포인트 획득!\n");
-									System.out.printf("%55s",
-											player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
-								} else if (winLose.result(user_score, com1_score, com2_score) == 0) {
-									System.out.println();
-									System.out.println(asc.lose());
-									sound.playLose();
-
-									System.out.println();
-									player.setPoint(player.getPoint() - 200);
-									dao.setPoint(player);
-									System.out.printf("%55s", "-200포인트 감점\n");
-									System.out.printf("%55s",
-											player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
-
-								} else {
-									System.out.println();
-									System.out.println(asc.draw());
-
-								}
-
+							} else if (select == 2) {// 첫번째패에서 다이
+								frame.deleteFlower();
+								player.setPoint(player.getPoint() - 50);
+								dao.setPoint(player);
+								System.out.printf("%55s", "포인트 점수가 -50 되었습니다\n");
+								System.out.printf("%55s", "현재 나의 포인트 점수 : " + player.getPoint() + "\n");
 								frame.rePaintMoney(player);
+								break;
 
-							} else if (select == 2) {// 하프
-								System.out.printf("%55s", "배팅포인트가 2배로 올라갑니다.\n");
-								System.out.println();
-
-								frame.openFlower();
-								user_score = winLose.score(user, user_1);
-								com1_score = winLose.score(com1, com1_1);
-								com2_score = winLose.score(com2, com2_1);
-
-								System.out.printf("%55s", "나의 패 : " + winLose.scoreLevel(user_score) + "\n");
-								System.out.printf("%55s", "컴퓨터1의 패 : " + winLose.scoreLevel(com1_score) + "\n");
-								System.out.printf("%55s", "컴퓨터2의 패 : " + winLose.scoreLevel(com2_score) + "\n");
-
-								if (winLose.result(user_score, com1_score, com2_score) == 2) {
-									System.out.println();
-									System.out.println(asc.win());
-									sound.playWin();
-
-									System.out.println();
-
-									player.setPoint(player.getPoint() + 400);
-									dao.setPoint(player);
-									System.out.printf("%55s", "+400 포인트 획득!\n");
-									System.out.printf("%55s",
-											player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
-								} else if (winLose.result(user_score, com1_score, com2_score) == 0) {
-									System.out.println();
-									System.out.println(asc.lose());
-									sound.playLose();
-
-									System.out.println();
-									player.setPoint(player.getPoint() - 400);
-									dao.setPoint(player);
-									System.out.printf("%55s", "-400포인트 감점\n");
-									System.out.printf("%55s",
-											player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
-
-								} else {
-									System.out.println();
-									System.out.println(asc.draw());
-
-								}
-
-								frame.rePaintMoney(player);
-								Thread.sleep(20 * 50);
-
+							} else if (select == 3) {// 족보보기
+								frame.showPriority();
+								continue;
 							}
 
-						} else if (select == 2) {// 첫번째패에서 다이
-							frame.deleteFlower();
-							player.setPoint(player.getPoint() - 50);
-							dao.setPoint(player);
-							System.out.printf("%55s", "포인트 점수가 -50 되었습니다\n");
-							System.out.printf("%55s", "현재 나의 포인트 점수 : " + player.getPoint() + "\n");
-							frame.rePaintMoney(player);
-
-						} else if (select == 3) {// 족보보기
-							frame.showPriority();
-							continue;
+							else {
+								System.out.printf("%55s", "번호를 다시 입력하세요\n");
+							}
 						}
-
-						else {
-							System.out.printf("%55s", "번호를 다시 입력하세요\n");
-						}
+						
 
 					} else if (mode == 2) {// 랭킹조회
 						ArrayList<PlayerDTO> playerList = dao.getRankedList();
