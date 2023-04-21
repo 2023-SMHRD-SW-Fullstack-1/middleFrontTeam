@@ -86,7 +86,7 @@ public class main {
 						frame.makePlayer();
 						continue;
 					} else {
-						System.out.println("\n로그인 실패! 다시 입력 해주세요");
+						System.out.printf("\n%55s","로그인 실패! 다시 입력 해주세요");
 						Thread.sleep(40 * 50);
 					}
 
