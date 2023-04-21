@@ -154,7 +154,19 @@ public class main {
 									frame.changeComDieImage(true, 1);//
 									frame.changeComDieImage(true, 2);//
 									System.out.printf("\n%50s", "컴퓨터 1, 컴퓨터 2 다이\n");
-									continue;
+									frame.openFlower(3);
+									user_score = 1;
+									com2_score = -1;
+									com1_score = -1;
+									System.out.println("\n" + asc.win());
+									sound.playWin();
+									player.setPoint(player.getPoint() + 200);
+									dao.setPoint(player);
+									System.out.printf("%55s", "+200 포인트 획득!\n");
+									System.out.printf("%55s",
+									player.getNickname() + "님 현재 포인트 : " + player.getPoint() + "\n");
+									frame.rePaintMoney(player);
+									break;
 									
 								} else if (die.getC2()) {// 컴2이 죽었을때
 									user_1 = frame.makeFlower();
@@ -327,7 +339,6 @@ public class main {
 						System.out.printf("%55s", "게임을 종료합니다\n");
 						frame.deleteFlower();
 						stop = 1;
-						System.exit(1);
 						break Label;
 					} else if (player.getPoint() <= 0) {
 						System.out.printf("%55s", "포인트가 부족합니다. 충전하세요\n");
